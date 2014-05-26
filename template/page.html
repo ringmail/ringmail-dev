@@ -1,0 +1,43 @@
+[% title = 'Page' %]
+[% menu_main = 'pages' %]
+[% content = BLOCK %]
+<div class="jumbotron">
+	<div class="container">
+		<strong>Page:</strong> [% page_path %]
+	</div>
+</div>
+<div class="container">
+	[% IF error %]
+		<div class="alert alert-danger alert-dismissable">
+			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+			[% error %]
+		</div>
+	[% END %]
+	[% IF message %]
+		<div class="alert alert-success alert-dismissable">
+			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+			[% message %]
+		</div>
+	[% END %]
+	<div class="row">
+		<div class="col-xs-6 col-nogutter">
+			<form class="form-condensed" method="post" action="[% page.url(
+				'query' => {
+					'path' => page.form.path
+				},
+			) %]">
+				[% page_table %]
+				<p/>
+				[% page.button(
+					'command' => 'page_update',
+					'text' => 'Update',
+					'opts' => {
+						'class' => 'btn btn-success',
+					},
+				) %]
+			</form>
+		</div>
+	</div>
+</div>
+[% END %]
+[% INCLUDE layout/dev.html %]

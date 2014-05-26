@@ -1,0 +1,31 @@
+[% title = '/\/073 Dev Login' %]
+[% content = BLOCK %]
+<div class="jumbotron">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-4">
+				<form class="form-signin" method="post" action="[% page.url() %]">
+					<h2 class="form-signin-heading">/\/073 Dev Login:</h2>
+					[% IF error %]<div class="alert alert-danger">[% error %]</div>[% END %]
+					<p>
+						<input name="login" type="text" class="form-control" placeholder="Login" autofocus>
+					</p>
+					<p>
+						<input name="password" type="password" class="form-control" placeholder="Password">
+					</p>
+					<p>
+						[% page.button(
+							'command' => 'login',
+							'text' => 'Login',
+							'opts' => {
+								'class' => 'btn btn-lg btn-primary btn-block',
+							},
+						) %]
+					</p>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+[% END %]
+[% INCLUDE layout/login.html %]

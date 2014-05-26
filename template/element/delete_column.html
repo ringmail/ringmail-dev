@@ -1,0 +1,39 @@
+<div class="modal fade" id="mDelete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title">Delete column '<span id="item-delete"></span>'</h4>
+			</div>
+			<div class="modal-body">
+				Delete column '<span id="item-delete-2"></span>'?
+			</div>
+			<div class="modal-footer">
+				<form class="form-condensed" method="post" action="[% page.url(
+					'query' => {
+						'table' => page.form.table,
+						'db' => page.form.db,
+					},
+				) %]">
+					[% page.field(
+						'command' => 'column_delete',
+						'type' => 'hidden',
+						'name' => 'item',
+						'opts' => {
+							'id' => 'item-delete-3',
+						},
+					) %]
+					<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+					&nbsp;&nbsp;
+					[% page.button(
+						'command' => 'column_delete',
+						'text' => 'Delete',
+						'opts' => {
+							'class' => 'btn btn-primary',
+						},
+					) %]
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

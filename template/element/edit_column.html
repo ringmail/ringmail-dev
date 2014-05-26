@@ -1,0 +1,78 @@
+<div class="row">
+	<div class="col-xs-4 col-nogutter">
+		<div class="well well-condensed">
+			<div class="dev-heading" style="text-align: center;">Edit Column</div>
+			<form method="post" action="[% page.url(
+				'query' => {
+					'db' => page.form.db,
+					'table' => page.form.table,
+				},
+			) %]" class="form-condensed">
+				<table class="table table-condensed table-nomargin table-vertical">
+					<tr>
+						<th>Name</th>
+						<td>
+							[% page.field(
+								'command' => 'column_edit',
+								'type' => 'text',
+								'name' => 'name',
+								'value' => name,
+								'opts' => {
+									'class' => 'form-control input-sm',
+								},
+							) %]
+						</td>
+					</tr>
+					<tr>
+						<th>Type</th>
+						<td>
+							[% page.field(
+								'command' => 'column_edit',
+								'type' => 'select',
+								'name' => 'type',
+								'opts' => {
+									'class' => 'form-control',
+								},
+								'selected' => type,
+								'select' => page.value.type_select,
+							) %]
+						</td>
+					</tr>
+					<tr>
+						<th>Nullable</th>
+						<td>
+							[% page.field(
+								'command' => 'column_edit',
+								'type' => 'checkbox',
+								'name' => 'null',
+								'checked' => null,
+							) %]
+						</td>
+					</tr>
+					<tr>
+						<th>&nbsp;</th>
+						<td>
+							[% page.button(
+								'command' => 'column_edit',
+								'text' => 'Next',
+								'opts' => {
+									'class' => 'btn btn-success',
+								},
+								'args' => [0, name],
+							) %]&nbsp;&nbsp;&nbsp;&nbsp;[% page.link (
+								'text' => 'Cancel',
+								'opts' => {
+									'class' => 'btn btn-default',
+								},
+								'query' => {
+									'db' => page.form.db,
+									'table' => page.form.table,
+								},
+							) %]
+						</td>
+					</tr>
+				</table>
+			</form>
+		</div>
+	</div>
+</div>

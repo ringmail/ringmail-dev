@@ -1,0 +1,7 @@
+<li[% IF menu_main == 'pages' %] class="active"[% END %]><a href="/">Pages</a></li>
+<li[% IF menu_main == 'tables' %] class="active"[% END %]><a href="/databases">Tables</a></li>
+<li>[% page.link(
+	'text' => 'Logout',
+	'path' => '/',
+	'command' => 'logout',
+) %]</li>

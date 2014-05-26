@@ -1,0 +1,84 @@
+<div class="row">
+	<div class="col-xs-4 col-nogutter">
+		<div class="well well-condensed">
+			<div class="dev-heading" style="text-align: center;">Add Index</div>
+			<form method="post" action="[% page.url(
+				'query' => {
+					'db' => page.form.db,
+					'table' => page.form.table,
+				},
+			) %]" class="form-condensed">
+				<table class="table table-condensed table-nomargin table-vertical">
+					<tr>
+						<th>Name</th>
+						<td>
+							[% page.field(
+								'command' => 'index_edit',
+								'type' => 'text',
+								'name' => 'name',
+								'value' => name,
+								'opts' => {
+									'class' => 'form-control input-sm',
+								},
+							) %]
+						</td>
+					</tr>
+					<tr>
+						<th>Type</th>
+						<td>
+							[% page.field(
+								'command' => 'index_edit',
+								'type' => 'select',
+								'name' => 'type',
+								'opts' => {
+									'class' => 'form-control',
+								},
+								'select' => [
+									['Index', 'index'],
+									['Unique', 'unique'],
+								],
+								'selected' => type,
+							) %]
+						</td>
+					</tr>
+					<tr>
+						<th>Columns</th>
+						<td>
+							[% page.field(
+								'command' => 'index_edit',
+								'type' => 'text',
+								'name' => 'columns',
+								'value' => columns,
+								'opts' => {
+									'class' => 'form-control input-sm',
+								},
+							) %]
+						</td>
+					</tr>
+					<tr>
+						<th>&nbsp;</th>
+						<td>
+							[% page.button(
+								'command' => 'index_edit',
+								'text' => 'Update',
+								'args' => [name],
+								'opts' => {
+									'class' => 'btn btn-success',
+								},
+							) %]&nbsp;&nbsp;&nbsp;&nbsp;[% page.link (
+								'text' => 'Cancel',
+								'opts' => {
+									'class' => 'btn btn-default',
+								},
+								'query' => {
+									'db' => page.form.db,
+									'table' => page.form.table,
+								},
+							) %]
+						</td>
+					</tr>
+				</table>
+			</form>
+		</div>
+	</div>
+</div>

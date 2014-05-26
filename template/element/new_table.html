@@ -1,0 +1,49 @@
+<div class="row">
+	<div class="col-xs-4 col-nogutter">
+		<div class="well well-condensed">
+			<div class="dev-heading" style="text-align: center;">New Table</div>
+			<form method="post" action="[% page.url(
+				'query' => {
+					'db' => page.form.db,
+				},
+			) %]" class="form-condensed">
+				<table class="table table-condensed table-nomargin table-vertical">
+					<tr>
+						<th>Table</th>
+						<td>
+							[% page.field(
+								'command' => 'table_new',
+								'type' => 'text',
+								'name' => 'table',
+								'value' => table_name,
+								'opts' => {
+									'class' => 'form-control input-sm',
+								},
+							) %]
+						</td>
+					</tr>
+					<tr>
+						<th>&nbsp;</th>
+						<td>
+							[% page.button(
+								'command' => 'table_new',
+								'text' => 'Create',
+								'opts' => {
+									'class' => 'btn btn-success',
+								},
+							) %]&nbsp;&nbsp;&nbsp;&nbsp;[% page.link (
+								'text' => 'Cancel',
+								'opts' => {
+									'class' => 'btn btn-default',
+								},
+								'query' => {
+									'db' => page.form.db,
+								},
+							) %]
+						</td>
+					</tr>
+				</table>
+			</form>
+		</div>
+	</div>
+</div>

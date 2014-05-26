@@ -1,0 +1,44 @@
+[% title = 'Pages' %]
+[% menu_main = 'pages' %]
+[% content = BLOCK %]
+<div class="jumbotron">
+	<div class="container">
+		<strong>Pages</strong>
+	</div>
+</div>
+<div class="container">
+	[% IF error %]
+		<div class="alert alert-danger alert-dismissable">
+			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+			[% error %]
+		</div>
+	[% END %]
+	[% IF message %]
+		<div class="alert alert-success alert-dismissable">
+			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+			[% message %]
+		</div>
+	[% END %]
+	[% IF input_box %]
+		[% input_box %]
+	[% ELSE %]
+		<div class="row">
+			[% page.link(
+				'text' => 'New Page &darr;',
+				'query' => {
+					'new_page' => 1,
+				},
+				'opts' => {
+					'class' => 'btn btn-primary',
+				},
+			) %]
+			<p/>
+		</div>
+	[% END %]
+	<div class="row">
+		[% file_table %]
+	</div>
+</div>
+[% INCLUDE element/delete_page.html %]
+[% END %]
+[% INCLUDE layout/dev.html %]

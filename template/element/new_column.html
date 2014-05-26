@@ -1,0 +1,74 @@
+<div class="row">
+	<div class="col-xs-4 col-nogutter">
+		<div class="well well-condensed">
+			<div class="dev-heading" style="text-align: center;">Add Column</div>
+			<form method="post" action="[% page.url(
+				'query' => {
+					'db' => page.form.db,
+					'table' => page.form.table,
+				},
+			) %]" class="form-condensed">
+				<table class="table table-condensed table-nomargin table-vertical">
+					<tr>
+						<th>Name</th>
+						<td>
+							[% page.field(
+								'command' => 'column_new',
+								'type' => 'text',
+								'name' => 'name',
+								'opts' => {
+									'class' => 'form-control input-sm',
+								},
+							) %]
+						</td>
+					</tr>
+					<tr>
+						<th>Type</th>
+						<td>
+							[% page.field(
+								'command' => 'column_new',
+								'type' => 'select',
+								'name' => 'type',
+								'opts' => {
+									'class' => 'form-control',
+								},
+								'select' => page.value.type_select,
+							) %]
+						</td>
+					</tr>
+					<tr>
+						<th>Nullable</th>
+						<td>
+							[% page.field(
+								'command' => 'column_new',
+								'type' => 'checkbox',
+								'name' => 'null',
+							) %]
+						</td>
+					</tr>
+					<tr>
+						<th>&nbsp;</th>
+						<td>
+							[% page.button(
+								'command' => 'column_new',
+								'text' => 'Create',
+								'opts' => {
+									'class' => 'btn btn-success',
+								},
+							) %]&nbsp;&nbsp;&nbsp;&nbsp;[% page.link (
+								'text' => 'Cancel',
+								'opts' => {
+									'class' => 'btn btn-default',
+								},
+								'query' => {
+									'db' => page.form.db,
+									'table' => page.form.table,
+								},
+							) %]
+						</td>
+					</tr>
+				</table>
+			</form>
+		</div>
+	</div>
+</div>

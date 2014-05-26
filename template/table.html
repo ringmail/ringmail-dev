@@ -1,0 +1,73 @@
+[% title = BLOCK %]Table: [% page.form.table %][% END %]
+[% menu_main = 'tables' %]
+[% content = BLOCK %]
+<div class="jumbotron">
+	<div class="container">
+		<strong>Database:</strong> [% page.form.db %]
+		&nbsp;&nbsp;&nbsp;&nbsp;
+		<strong>Table:</strong> [% page.form.table %]
+	</div>
+</div>
+<div class="container">
+	[% IF error %]
+		<div class="alert alert-danger alert-dismissable">
+			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+			[% error %]
+		</div>
+	[% END %]
+	[% IF message %]
+		<div class="alert alert-success alert-dismissable">
+			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+			[% message %]
+		</div>
+	[% END %]
+	[% IF input_box %]
+		[% input_box %]
+	[% ELSE %]
+		<div class="row">
+			[% page.link(
+				'text' => 'Add Column &darr;',
+				'query' => {
+					'new_col' => 1,
+					'db' => page.form.db,
+					'table' => page.form.table,
+				},
+				'opts' => {
+					'class' => 'btn btn-primary',
+				},
+			) %]
+			<p/>
+		</div>
+	[% END %]
+	<div class="row">
+		[% column_list %]
+	</div>
+	[% IF input_index %]
+		[% input_index %]
+	[% ELSE %]
+		<div class="row">
+			[% page.link(
+				'text' => 'Add Index &darr;',
+				'query' => {
+					'new_index' => 1,
+					'db' => page.form.db,
+					'table' => page.form.table,
+				},
+				'opts' => {
+					'class' => 'btn btn-primary',
+				},
+			) %]
+			<p/>
+		</div>
+	[% END %]
+	<div class="row">
+		[% index_list %]
+	</div>
+	<div class="row">
+		<pre><code>[% table_sql %]</code></pre>
+	</div>
+</div>
+[% INCLUDE element/delete_column.html %]
+[% INCLUDE element/delete_index.html %]
+[% END %]
+[% INCLUDE layout/dev.html %]

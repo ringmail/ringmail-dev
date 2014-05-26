@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>[% title %]</title>
+		<link href="/css/bootstrap.css" rel="stylesheet" media="screen">
+		<link href="/css/dev.css" rel="stylesheet" media="screen">
+	</head>
+	<body>
+		<div class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#">/\/073</a>
+				</div>
+				<ul class="nav navbar-nav">
+					[% INCLUDE layout/menu.html %]
+				</ul>
+				<p class="navbar-text">
+					<span class="label label-primary">[% user %]</span>
+				</p>
+			</div>
+		</div>
+[% content %]
+		<script src="/js/jquery-2.0.3.min.js"></script>
+		<script src="/js/bootstrap.js"></script>
+		<script src="/js/dev.js"></script>
+	</body>
+</html>

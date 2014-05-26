@@ -1,0 +1,226 @@
+<div class="row">
+	<div class="col-xs-4 col-nogutter">
+		<div class="well well-condensed">
+			<div class="dev-heading" style="text-align: center;">Add Column</div>
+			<form method="post" action="[% page.url(
+				'query' => {
+					'db' => page.form.db,
+					'table' => page.form.table,
+				},
+			) %]" class="form-condensed">
+				<table class="table table-condensed table-nomargin table-vertical">
+					<tr>
+						<th>Name</th>
+						<td>
+							[% page.value.new.name %]
+						</td>
+					</tr>
+					<tr>
+						<th>Type</th>
+						<td>
+							[% page.value.new.type %]
+						</td>
+					</tr>
+					<tr>
+						<th>Nullable</th>
+						<td>
+							[% IF page.value.new.null %]Yes[% ELSE %]No[% END %]
+						</td>
+					</tr>
+					[% IF page.value.type == 'record' %]
+						<tr>
+							<th>Foreign Table</th>
+							<td>
+								[% page.field(
+									'command' => 'column_new',
+									'type' => 'text',
+									'name' => 'record_table',
+									'opts' => {
+										'class' => 'form-control input-sm',
+									},
+								) %]
+							</td>
+						</tr>
+						<tr>
+							<th>Logical Parent</th>
+							<td>
+								[% page.field(
+									'command' => 'column_new',
+									'type' => 'checkbox',
+									'name' => 'parent',
+									'checked' => column.parent,
+								) %]
+							</td>
+						</tr>
+						<tr>
+							<th>Max. Cardinality</th>
+							<td>
+								[% page.field(
+									'command' => 'column_new',
+									'type' => 'select',
+									'name' => 'max_cardinality',
+									'selected' => column.max_cardinality,
+									'select' => [
+										['Many', '0'],
+										['1', '1'],
+									],
+								) %]
+							</td>
+						</tr>
+					[% ELSIF 	page.value.type == 'text' ||
+								page.value.type == 'binary' %]
+						<tr>
+							<th>Length</th>
+							<td>
+								[% page.field(
+									'command' => 'column_new',
+									'type' => 'select',
+									'name' => 'length',
+									'opts' => {
+										'class' => 'form-control',
+									},
+									'select' => [
+										['Specify Length', 'specify'],
+										['Text', '64k'],
+										['Long Text (4GB)', 'long'],
+									],
+								) %]
+							</td>
+						</tr>
+						<tr>
+							<th>Specify Length</th>
+							<td>
+								[% page.field(
+									'command' => 'column_new',
+									'type' => 'text',
+									'name' => 'length_specify',
+									'opts' => {
+										'class' => 'form-control input-sm',
+										'style' => 'width: 60px;',
+									},
+								) %]
+							</td>
+						</tr>
+						<tr>
+							<th>Default</th>
+							<td>
+								[% page.field(
+									'command' => 'column_new',
+									'type' => 'text',
+									'name' => 'default',
+									'opts' => {
+										'class' => 'form-control input-sm',
+									},
+								) %]
+							</td>
+						</tr>
+						[% IF page.value.new.null %]
+							<tr>
+								<th>Default Null</th>
+								<td>
+									[% page.field(
+										'command' => 'column_new',
+										'type' => 'checkbox',
+										'name' => 'default_null',
+									) %]
+								</td>
+							</tr>
+						[% END %]
+					[% ELSIF	page.value.type == 'boolean' ||
+								page.value.type == 'integer' ||
+								page.value.type == 'float' ||
+								page.value.type == 'currency' %]
+						<tr>
+							<th>Default</th>
+							<td>
+								[% page.field(
+									'command' => 'column_new',
+									'type' => 'text',
+									'name' => 'default',
+									'opts' => {
+										'class' => 'form-control input-sm',
+									},
+								) %]
+							</td>
+						</tr>
+						[% IF page.value.new.null %]
+							<tr>
+								<th>Default Null</th>
+								<td>
+									[% page.field(
+										'command' => 'column_new',
+										'type' => 'checkbox',
+										'name' => 'default_null',
+									) %]
+								</td>
+							</tr>
+						[% END %]
+					[% ELSIF page.value.type == 'datetime' %]
+						<tr>
+							<th>Timestamp</th>
+							<td>
+								[% page.field(
+									'command' => 'column_new',
+									'type' => 'checkbox',
+									'name' => 'timestamp',
+								) %]
+							</td>
+						</tr>
+						[% IF page.value.new.null %]
+							<tr>
+								<th>Default Null</th>
+								<td>
+									[% page.field(
+										'command' => 'column_new',
+										'type' => 'checkbox',
+										'name' => 'default_null',
+									) %]
+								</td>
+							</tr>
+						[% END %]
+					[% END %]
+					<tr>
+						<th>&nbsp;</th>
+						<td>
+							[% page.field(
+								'command' => 'column_new',
+								'type' => 'hidden',
+								'name' => 'type',
+								'value' => page.value.type,
+							) %]
+							[% page.field(
+								'command' => 'column_new',
+								'type' => 'hidden',
+								'name' => 'name',
+								'value' => page.value.new.name,
+							) %]
+							[% page.field(
+								'command' => 'column_new',
+								'type' => 'hidden',
+								'name' => 'null',
+								'value' => page.value.new.null,
+							) %]
+							[% page.button(
+								'command' => 'column_new',
+								'text' => 'Create',
+								'opts' => {
+									'class' => 'btn btn-success',
+								},
+								'args' => [1],
+							) %]&nbsp;&nbsp;&nbsp;&nbsp;[% page.link (
+								'text' => 'Cancel',
+								'opts' => {
+									'class' => 'btn btn-default',
+								},
+								'query' => {
+									'db' => page.form.db,
+									'table' => page.form.table,
+								},
+							) %]
+						</td>
+					</tr>
+				</table>
+			</form>
+		</div>
+	</div>
+</div>
