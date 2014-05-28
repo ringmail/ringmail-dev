@@ -11,7 +11,7 @@ use Plack::Builder;
 use Note::PSGI;
 
 my $root = '/home/note';
-my $approot = '/app/note';
+my $approot = '/app/dev';
 my $obj = new Note::PSGI();
 $obj->setup(
 	'config_file' => $root. '/cfg/note.cfg',
