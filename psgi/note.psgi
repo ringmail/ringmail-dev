@@ -1,5 +1,6 @@
 #!/usr/bin/perl
-use lib '/home/note/dyl/lib';
+use lib '/home/note/lib';
+use lib '/home/note/app/dev/lib';
 
 use Data::Dumper;
 use JSON::XS;
@@ -9,7 +10,7 @@ use Plack::Builder;
 
 use Note::PSGI;
 
-my $root = '/home/note/dyl';
+my $root = '/home/note';
 my $approot = '/app/note';
 my $obj = new Note::PSGI();
 $obj->setup(
