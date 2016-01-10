@@ -198,7 +198,7 @@ sub field_sql
 	}
 	elsif ($type eq 'currency')
 	{
-		$sqltype = 'decimal(24,4)';
+		$sqltype = 'decimal(24,2)';
 	}
 	elsif ($type eq 'date' || $type eq 'datetime')
 	{
