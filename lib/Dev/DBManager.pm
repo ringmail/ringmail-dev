@@ -2,7 +2,6 @@ package Dev::DBManager;
 use strict;
 use warnings;
 
-
 use Moose;
 use JSON::XS;
 use Data::Dumper;
@@ -12,6 +11,7 @@ use SQL::Translator::Parser::MySQL;
 
 use Note::App;
 use Note::SQL::Database;
+use Note::SQL::Schema;
 
 no warnings 'uninitialized';
 
@@ -70,200 +70,6 @@ sub iterate_dir
 	return \@files;
 }
 
-sub table_sql
-{
-	my ($obj, $name, $data, $schref) = @_;
-	my $translator = new SQL::Translator(
-		'no_comments' => 1,
-	);
-	$translator->parser(sub {
-		my ($tr) = @_;
-		my $schema = $tr->schema();
-		my $table = SQL::Translator::Schema::Table->new(
-			'name' => $name,
-		);
-		$table->add_field(
-			'name' => 'id',
-			'data_type' => 'bigint',
-		);
-		my $pk = $table->get_field('id');
-		$pk->extra({'unsigned' => 1});
-		$pk->is_nullable(0);
-		if ($data->{'primary_key'}->{'mode'} eq 'auto_inc')
-		{
-			$pk->is_auto_increment(1);
-		}
-		$table->primary_key('id');
-		$table->options({
-			'ENGINE' => 'InnoDB',
-		});
-		$table->options({
-			'DEFAULT CHARSET' => 'latin1',
-		});
-		foreach my $k (sort keys %{$data->{'columns'}})
-		{
-			my $fld = $data->{'columns'}->{$k};
-			$obj->field_sql($table, $k, $fld);
-		}
-		foreach my $ik (sort keys %{$data->{'index'}})
-		{
-			my $idata = $data->{'index'}->{$ik};
-			my $ty = 'NORMAL';
-			if ($idata->{'type'} eq 'unique')
-			{
-				$ty = 'UNIQUE';
-			}
-			$table->add_index(
-				'name' => $ik,
-				'type' => $ty,
-				'fields' => [@{$idata->{'columns'}}],
-			);
-		}
-		$schema->add_table($table);
-		if (ref($schref))
-		{
-			$$schref = $schema;
-		}
-		return 1;
-	});
-	my $sql = $translator->translate(
-		'producer' => 'MySQL',
-		'producer_args' => {
-			'mysql_version' => 5,
-		},
-	);
-	unless (defined $sql)
-	{
-		die ('SQL translate error');
-	}
-	while ($sql =~ s/^(.*?index.*?)\((\d+)\)\`/$1`($2)/im) { 1; }
-	my @pts = split /\n\n/, $sql;
-	return $pts[1];
-}
-
-sub field_sql
-{
-	my ($obj, $table, $k, $fld) = @_;
-	my $type = $fld->{'type'};
-	my $sqltype;
-	my %extra = ();
-	if ($type eq 'text')
-	{
-		my $sz = $fld->{'length'};
-		if ($sz =~ /^\d+$/ && $sz <= 255)
-		{
-			$sqltype = 'varchar('. $sz. ')';
-		}
-		elsif ($sz eq '64k')
-		{
-			$sqltype = 'text';
-		}
-		elsif ($sz eq 'long')
-		{
-			$sqltype = 'longtext';
-		}
-	}
-	elsif ($type eq 'binary')
-	{
-		my $sz = $fld->{'length'};
-		if ($sz =~ /^\d+$/ && $sz <= 255)
-		{
-			$sqltype = 'varbinary('. $sz. ')';
-		}
-		elsif ($sz eq '64k')
-		{
-			$sqltype = 'blob';
-		}
-		elsif ($sz eq 'long')
-		{
-			$sqltype = 'longblob';
-		}
-	}
-	elsif ($type eq 'record')
-	{
-		$extra{'unsigned'} = 1;
-		$sqltype = 'bigint';
-	}
-	elsif ($type eq 'boolean')
-	{
-		$sqltype = 'bool';
-	}
-	elsif ($type eq 'integer')
-	{
-		$sqltype = 'bigint';
-	}
-	elsif ($type eq 'float')
-	{
-		$sqltype = 'real';
-	}
-	elsif ($type eq 'currency')
-	{
-		$sqltype = 'decimal(24,2)';
-	}
-	elsif ($type eq 'date' || $type eq 'datetime')
-	{
-		if ($fld->{'timestamp'})
-		{
-			$sqltype = 'timestamp';
-		}
-		else
-		{
-			$sqltype = $type;
-		}
-	}
-	$table->add_field(
-		'name' => $k,
-		'data_type' => $sqltype,
-	);
-	my $field = $table->get_field($k);
-	if ($fld->{'null'})
-	{
-		$field->is_nullable(1);
-	}
-	else
-	{
-		$field->is_nullable(0);
-	}
-	if (scalar keys %extra)
-	{
-		foreach my $i (sort keys %extra)
-		{
-			$field->extra($i => $extra{$i});
-		}
-	}
-	if ($type eq 'date' || $type eq 'datetime')
-	{
-		if ($fld->{'timestamp'})
-		{
-			$field->default_value(\'CURRENT_TIMESTAMP');
-		}
-		elsif ($fld->{'default_null'})
-		{
-			$field->default_value(\'NULL');
-		}
-	}
-	elsif ($type eq 'boolean')
-	{
-		my $def = ($fld->{'default'}) ? 1 : 0;
-		$field->default_value(\$def);
-	}
-	elsif (
-		($type eq 'text' && ! ($fld->{'length'} =~ /^\d+$/ && $fld->{'length'} <= 255)) ||
-		($type eq 'binary' && ! ($fld->{'length'} =~ /^\d+$/ && $fld->{'length'} <= 255))
-	) {
-		# no default value in MySQL 5.6
-	}
-	elsif ($fld->{'default_null'})
-	{
-		$field->default_value(\'NULL');
-	}
-	elsif (defined ($fld->{'default'}))
-	{
-		$field->default_value($fld->{'default'});
-	}
-	return $field->schema();
-}
-
 sub json_load
 {
 	my ($obj, $fp) = @_;
@@ -293,55 +99,45 @@ sub json_save
 	return $data;
 }
 
-sub table_parse
+sub db_show_create
 {
-	my ($obj, $sql) = @_;
-	my $trns = new SQL::Translator();
-	$trns->parser(sub {
-		my ($tr, $data) = @_;
-		SQL::Translator::Parser::MySQL::parse($tr, $sql. ';');
-		return 1;
-	});
-	return $trns->translate();
-}
-
-sub table_diff
-{
-	my ($obj, $currentsql, $newsql, $tname) = @_;
-	my $curschema = $obj->table_parse($currentsql);
-	my $newschema = $obj->table_parse($newsql);
-	foreach my $t ($curschema->get_tables())
+	my ($obj, $table) = @_;
+	my $db = $obj->database();
+	my $sql = "SHOW CREATE TABLE `$table`";
+	my $q;
+	eval {
+		$q = $db->query($sql);
+	};
+	if ($@)
 	{
-		foreach my $fld ($t->get_fields())
+		my $err = $@;
+		if ($err =~ /DBD::mysql::st execute failed: Table '.*?' doesn't exist/)
 		{
-			my $dt = $fld->data_type();
-			my $dv = $fld->default_value();
-			my $k = $fld->name();
-			if ($dt eq 'bigint')
-			{
-				if (defined($dv) && $dv eq 'NULL')
-				{
-					$fld->default_value(undef);
-				}
-			}
+			return undef;
+		}
+		else
+		{
+			die($@);
 		}
 	}
-	#my $dump = Dumper($curschema, $newschema);
-	my $diff = SQL::Translator::Diff->new({
-		'output_db' => 'MySQL',
-		'source_schema' => $curschema,
-		'target_schema' => $newschema,
-		#%$options_hash,
-	})->compute_differences()->produce_diff_sql();
-	if ($diff =~ /-- No differences found;/m)
+	if (scalar (@$q))
 	{
-		return undef;
+		return $q->[0]->[1];
 	}
-	#print $dump;
-	$diff =~ s/^\s*--.*$//mg;
-	$diff =~ s/^\s*\n//mg;
-	$diff =~ s/^\s*(BEGIN|COMMIT);\s*\n//mg;
-	return $diff;
+	return undef;
+}
+
+sub db_create_table
+{
+	my ($obj, $sql) = @_;
+	my $db = $obj->database();
+	eval {
+		$db->do($sql);
+	};
+	if ($@)
+	{
+		die("SQL Create Table Failed For:\n$sql\nDBI Error: $@");
+	}
 }
 
 sub build_sql_tables
@@ -384,47 +180,6 @@ sub build_sql_tables
 		print "Diffs:\n$diffs";
 	}
 	return \@res;
-}
-
-sub db_show_create
-{
-	my ($obj, $table) = @_;
-	my $db = $obj->database();
-	my $sql = "SHOW CREATE TABLE `$table`";
-	my $q;
-	eval {
-		$q = $db->query($sql);
-	};
-	if ($@)
-	{
-		my $err = $@;
-		if ($err =~ /DBD::mysql::st execute failed: Table '.*?' doesn't exist/)
-		{
-			return undef;
-		}
-		else
-		{
-			die($@);
-		}
-	}
-	if (scalar (@$q))
-	{
-		return $q->[0]->[1];
-	}
-	return undef;
-}
-
-sub db_create_table
-{
-	my ($obj, $sql) = @_;
-	my $db = $obj->database();
-	eval {
-		$db->do($sql);
-	};
-	if ($@)
-	{
-		die("SQL Create Table Failed For:\n$sql\nDBI Error: $@");
-	}
 }
 
 sub build_sql_links
@@ -495,8 +250,6 @@ sub build_sql_links
 	#print Dumper(\%tlinks);
 	return \%tlinks;
 }
-
-
 
 1;
 

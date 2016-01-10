@@ -11,6 +11,7 @@ use Note::Param;
 use Note::HTML 'htable', 'vtable';
 use Note::XML 'xml';
 use Note::Check;
+use Note::SQL::Schema;
 
 use Dev::DBManager;
 
@@ -31,9 +32,9 @@ our @field_type = (
 	'date',
 );
 
-has 'manager' => (
+has 'schema' => (
 	'is' => 'rw',
-	'isa' => 'Dev::DBManager',
+	'isa' => 'Note::SQL::Schema',
 );
 
 sub load
@@ -286,11 +287,8 @@ sub load
 			'style' => 'width: 700px;',
 		},
 	);
-	$obj->manager(new Dev::DBManager(
-		'app' => $obj->app(),
-		'name' => $form->{'db'},
-	));
-	$ct->{'table_sql'} = $obj->manager()->table_sql($form->{'table'}, $tdata);
+	$obj->schema(new Note::SQL::Schema());
+	$ct->{'table_sql'} = $obj->schema()->table_sql($form->{'table'}, $tdata);
 	return $obj->SUPER::load($param);
 }
 
