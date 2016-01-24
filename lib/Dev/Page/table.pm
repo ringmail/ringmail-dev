@@ -155,8 +155,8 @@ sub load
 					'db' => $form->{'db'},
 				},
 			);
-			$type .= ($cd->{'parent'}) ? ' Parent' : '';
-			$type .= ($cd->{'max_cardinality'} == 1) ? ' 1:1' : '';
+#			$type .= ($cd->{'parent'}) ? ' Parent' : '';
+#			$type .= ($cd->{'max_cardinality'} == 1) ? ' 1:1' : '';
 		}
 		push @row, $type;
 		push @row, ($cd->{'null'}) ? 'Yes' : 'No';
@@ -186,6 +186,10 @@ sub load
 		elsif (length($cd->{'default'}))
 		{
 			$default = $cd->{'default'};
+		}
+		elsif ($cd->{'timestamp'})
+		{
+			$default = xml('em', [{}, 0, 'Timestamp']);
 		}
 		else
 		{
@@ -289,7 +293,33 @@ sub load
 	);
 	$obj->schema(new Note::SQL::Schema());
 	$ct->{'table_sql'} = $obj->schema()->table_sql($form->{'table'}, $tdata);
+	my $database = $obj->get_database();
+	if (defined $database)
+	{
+		my $cursql = undef;
+		eval {
+			$cursql = $database->get_create_table('table' => $form->{'table'});
+		};
+		if ($cursql)
+		{
+			$ct->{'current_sql'} = $cursql;
+			my $diffsql = $obj->schema()->table_diff($cursql, $ct->{'table_sql'}, $form->{'table'});
+			if ($diffsql)
+			{
+				$ct->{'diff_sql'} = $diffsql;
+			}
+		}
+	}
 	return $obj->SUPER::load($param);
+}
+
+sub get_database
+{
+	my ($obj) = @_;
+	my $form = $obj->form();
+	my $dbkey = $form->{'db'};
+	my $db = $main::note_config->{'storage'}->{$dbkey};
+	return $db;
 }
 
 sub table_path
@@ -403,14 +433,14 @@ sub column_check
 			}
 			$col->{'table'} = $ft;
 		}
-		if ($data->{'parent'} eq 'on')
-		{
-			$col->{'parent'} = 1;
-		}
-		if ($data->{'max_cardinality'} eq '1')
-		{
-			$col->{'max_cardinality'} = 1;
-		}
+#		if ($data->{'parent'} eq 'on')
+#		{
+#			$col->{'parent'} = 1;
+#		}
+#		if ($data->{'max_cardinality'} eq '1')
+#		{
+#			$col->{'max_cardinality'} = 1;
+#		}
 	}
 	elsif ($ty eq 'text' || $ty eq 'binary')
 	{

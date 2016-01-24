@@ -64,8 +64,27 @@
 		[% index_list %]
 	</div>
 	<div class="row">
+		<h4>Generated SQL:</h4>
+	</div>
+	<div class="row">
 		<pre><code>[% table_sql %]</code></pre>
 	</div>
+	[% IF current_sql %]
+	<div class="row">
+		<h4>Current SQL:</h4>
+	</div>
+	<div class="row">
+		<pre><code>[% current_sql %]</code></pre>
+	</div>
+	[% END %]
+	[% IF diff_sql %]
+	<div class="row">
+		<h4>SQL Alter Statement:</h4>
+	</div>
+	<div class="row">
+		<pre><code>[% diff_sql %]</code></pre>
+	</div>
+	[% END %]
 </div>
 [% INCLUDE element/delete_column.html %]
 [% INCLUDE element/delete_index.html %]

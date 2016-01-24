@@ -41,32 +41,6 @@
 								) %]
 							</td>
 						</tr>
-						<tr>
-							<th>Logical Parent</th>
-							<td>
-								[% page.field(
-									'command' => 'column_new',
-									'type' => 'checkbox',
-									'name' => 'parent',
-									'checked' => column.parent,
-								) %]
-							</td>
-						</tr>
-						<tr>
-							<th>Max. Cardinality</th>
-							<td>
-								[% page.field(
-									'command' => 'column_new',
-									'type' => 'select',
-									'name' => 'max_cardinality',
-									'selected' => column.max_cardinality,
-									'select' => [
-										['Many', '0'],
-										['1', '1'],
-									],
-								) %]
-							</td>
-						</tr>
 					[% ELSIF 	page.value.type == 'text' ||
 								page.value.type == 'binary' %]
 						<tr>
