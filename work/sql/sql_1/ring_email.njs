@@ -1,0 +1,61 @@
+{
+   "columns" : {
+      "domain_id" : {
+         "name" : "domain_id",
+         "null" : 0,
+         "type" : "record"
+      },
+      "domain_user_id" : {
+         "name" : "domain_user_id",
+         "null" : 0,
+         "type" : "record"
+      },
+      "email" : {
+         "length" : "255",
+         "name" : "email",
+         "null" : 0,
+         "type" : "text"
+      },
+      "email_hash" : {
+         "default" : "NULL",
+         "length" : "64",
+         "name" : "email_hash",
+         "null" : 1,
+         "type" : "text"
+      }
+   },
+   "index" : {
+      "domain_id_1" : {
+         "columns" : [
+            "domain_id"
+         ],
+         "name" : "domain_id_1",
+         "type" : "index"
+      },
+      "domain_user_id_1" : {
+         "columns" : [
+            "domain_user_id"
+         ],
+         "name" : "domain_user_id_1",
+         "type" : "unique"
+      },
+      "email_1" : {
+         "columns" : [
+            "email"
+         ],
+         "name" : "email_1",
+         "type" : "unique"
+      },
+      "email_hash_1" : {
+         "columns" : [
+            "email_hash"
+         ],
+         "name" : "email_hash_1",
+         "type" : "index"
+      }
+   },
+   "primary_key" : {
+      "name" : "id",
+      "type" : "record"
+   }
+}
