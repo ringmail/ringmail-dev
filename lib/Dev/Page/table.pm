@@ -292,7 +292,12 @@ sub load
 		},
 	);
 	$obj->schema(new Note::SQL::Schema());
-	$ct->{'table_sql'} = $obj->schema()->table_sql($form->{'table'}, $tdata);
+	my $platform = 'mysql';
+	if ($form->{'platform'} eq 'sqlite')
+	{
+		$platform = $form->{'platform'};
+	}
+	$ct->{'table_sql'} = $obj->schema()->table_sql($form->{'table'}, $tdata, undef, $platform);
 	my $database = $obj->get_database();
 	if (defined $database)
 	{

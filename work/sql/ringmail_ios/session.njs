@@ -14,6 +14,11 @@
          "null" : 0,
          "type" : "text"
       },
+      "ts_last_event" : {
+         "name" : "ts_last_event",
+         "null" : 0,
+         "type" : "datetime"
+      },
       "unread" : {
          "default" : "0",
          "name" : "unread",
@@ -35,6 +40,13 @@
          ],
          "name" : "session_tag_1",
          "type" : "unique"
+      },
+      "ts_last_event_1" : {
+         "columns" : [
+            "ts_last_event"
+         ],
+         "name" : "ts_last_event_1",
+         "type" : "index"
       }
    },
    "primary_key" : {
