@@ -3,6 +3,7 @@
       "domain_id" : {
          "name" : "domain_id",
          "null" : 0,
+         "table" : "ring_domain",
          "type" : "record"
       },
       "username" : {

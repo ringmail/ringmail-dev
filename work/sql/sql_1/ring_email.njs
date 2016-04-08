@@ -2,12 +2,14 @@
    "columns" : {
       "domain_id" : {
          "name" : "domain_id",
-         "null" : 0,
+         "null" : 1,
+         "table" : "ring_domain",
          "type" : "record"
       },
       "domain_user_id" : {
          "name" : "domain_user_id",
-         "null" : 0,
+         "null" : 1,
+         "table" : "ring_domain_user",
          "type" : "record"
       },
       "email" : {
