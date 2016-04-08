@@ -57,39 +57,39 @@
       }
    },
    "index" : {
-      "account_id" : {
+      "account_1" : {
          "columns" : [
             "account"
          ],
-         "name" : "account_id",
+         "name" : "account_1",
          "type" : "index"
       },
-      "card_id" : {
+      "card_id_1" : {
          "columns" : [
             "card_id"
          ],
-         "name" : "card_id",
+         "name" : "card_id_1",
          "type" : "index"
       },
-      "ref_id" : {
+      "ref_id_1" : {
          "columns" : [
             "ref_id(12)"
          ],
-         "name" : "ref_id",
+         "name" : "ref_id_1",
          "type" : "index"
       },
-      "reversed" : {
+      "reversed_1" : {
          "columns" : [
             "reversed"
          ],
-         "name" : "reversed",
+         "name" : "reversed_1",
          "type" : "index"
       },
-      "user_id" : {
+      "user_1" : {
          "columns" : [
             "user_id"
          ],
-         "name" : "user_id",
+         "name" : "user_1",
          "type" : "index"
       }
    },
