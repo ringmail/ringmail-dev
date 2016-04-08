@@ -31,32 +31,32 @@
       }
    },
    "index" : {
-      "did_id" : {
+      "did_id_1" : {
          "columns" : [
             "did_id"
          ],
-         "name" : "did_id",
+         "name" : "did_id_1",
          "type" : "unique"
       },
-      "domain_id" : {
+      "domain_id_1" : {
          "columns" : [
             "domain_id"
          ],
-         "name" : "domain_id",
+         "name" : "domain_id_1",
          "type" : "unique"
       },
-      "email_id" : {
+      "email_id_1" : {
          "columns" : [
             "email_id"
          ],
-         "name" : "email_id",
+         "name" : "email_id_1",
          "type" : "unique"
       },
-      "user_id" : {
+      "user_1" : {
          "columns" : [
             "user_id"
          ],
-         "name" : "user_id",
+         "name" : "user_1",
          "type" : "index"
       }
    },

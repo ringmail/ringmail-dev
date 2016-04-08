@@ -26,25 +26,25 @@
       }
    },
    "index" : {
-      "gruu" : {
+      "gruu_1" : {
          "columns" : [
             "gruu"
          ],
-         "name" : "gruu",
+         "name" : "gruu_1",
          "type" : "index"
       },
-      "login" : {
+      "login_1" : {
          "columns" : [
             "login"
          ],
-         "name" : "login",
+         "name" : "login_1",
          "type" : "unique"
       },
-      "user_id" : {
+      "user_1" : {
          "columns" : [
             "user_id"
          ],
-         "name" : "user_id",
+         "name" : "user_1",
          "type" : "index"
       }
    },
