@@ -35,18 +35,18 @@
       }
    },
    "index" : {
-      "email_id_1" : {
+      "email_id" : {
          "columns" : [
             "email_id"
          ],
-         "name" : "email_id_1",
+         "name" : "email_id",
          "type" : "unique"
       },
-      "user_id_1" : {
+      "user_id" : {
          "columns" : [
             "user_id"
          ],
-         "name" : "user_id_1",
+         "name" : "user_id",
          "type" : "index"
       }
    },
