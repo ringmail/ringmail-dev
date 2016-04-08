@@ -8,11 +8,11 @@
       }
    },
    "index" : {
-      "name" : {
+      "name_1" : {
          "columns" : [
             "name"
          ],
-         "name" : "name",
+         "name" : "name_1",
          "type" : "unique"
       }
    },

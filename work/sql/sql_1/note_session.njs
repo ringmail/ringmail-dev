@@ -38,11 +38,11 @@
       }
    },
    "index" : {
-      "skey" : {
+      "skey_1" : {
          "columns" : [
             "skey"
          ],
-         "name" : "skey",
+         "name" : "skey_1",
          "type" : "unique"
       }
    },
