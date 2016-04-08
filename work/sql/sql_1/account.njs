@@ -32,25 +32,11 @@
       }
    },
    "index" : {
-      "ts_created_1" : {
-         "columns" : [
-            "ts_created"
-         ],
-         "name" : "ts_created_1",
-         "type" : "index"
-      },
-      "ts_updated_1" : {
-         "columns" : [
-            "ts_updated"
-         ],
-         "name" : "ts_updated_1",
-         "type" : "index"
-      },
-      "user_1" : {
+      "user_id" : {
          "columns" : [
             "user_id"
          ],
-         "name" : "user_1",
+         "name" : "user_id",
          "type" : "index"
       }
    },

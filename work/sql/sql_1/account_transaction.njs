@@ -40,46 +40,39 @@
       }
    },
    "index" : {
-      "acct_dst_1" : {
+      "acct_dst" : {
          "columns" : [
             "acct_dst"
          ],
-         "name" : "acct_dst_1",
+         "name" : "acct_dst",
          "type" : "index"
       },
-      "acct_src_1" : {
+      "acct_src" : {
          "columns" : [
             "acct_src"
          ],
-         "name" : "acct_src_1",
+         "name" : "acct_src",
          "type" : "index"
       },
-      "entity_1" : {
+      "entity" : {
          "columns" : [
             "entity"
          ],
-         "name" : "entity_1",
+         "name" : "entity",
          "type" : "index"
       },
-      "ts_1" : {
-         "columns" : [
-            "ts"
-         ],
-         "name" : "ts_1",
-         "type" : "index"
-      },
-      "tx_type_1" : {
+      "tx_type" : {
          "columns" : [
             "tx_type"
          ],
-         "name" : "tx_type_1",
+         "name" : "tx_type",
          "type" : "index"
       },
-      "user_1" : {
+      "user_id" : {
          "columns" : [
             "user_id"
          ],
-         "name" : "user_1",
+         "name" : "user_id",
          "type" : "index"
       }
    },
