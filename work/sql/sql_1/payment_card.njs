@@ -106,11 +106,11 @@
       }
    },
    "index" : {
-      "user_1" : {
+      "user_id" : {
          "columns" : [
             "user_id"
          ],
-         "name" : "user_1",
+         "name" : "user_id",
          "type" : "index"
       }
    },
