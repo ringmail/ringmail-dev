@@ -1,11 +1,15 @@
 {
    "columns" : {
-      "id" : {
-         "name" : "id",
+      "timestamp" : {
+         "name" : "timestamp",
          "null" : 0,
-         "type" : "record"
+         "timestamp" : 1,
+         "type" : "datetime"
       }
    },
    "index" : {},
-   "primary_key" : {}
+   "primary_key" : {
+      "mode" : "auto_inc",
+      "name" : "id"
+   }
 }
