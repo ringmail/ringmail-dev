@@ -25,12 +25,12 @@
          "name" : "email_id_1",
          "type" : "index"
       },
-      "user_1" : {
+      "user_id_1" : {
          "columns" : [
             "user_id",
             "email_id"
          ],
-         "name" : "user_1",
+         "name" : "user_id_1",
          "type" : "unique"
       }
    },

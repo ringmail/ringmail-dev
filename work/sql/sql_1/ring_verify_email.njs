@@ -42,11 +42,11 @@
          "name" : "email_id_1",
          "type" : "unique"
       },
-      "user_1" : {
+      "user_id_1" : {
          "columns" : [
             "user_id"
          ],
-         "name" : "user_1",
+         "name" : "user_id_1",
          "type" : "index"
       }
    },
