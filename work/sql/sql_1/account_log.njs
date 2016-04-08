@@ -38,18 +38,18 @@
       }
    },
    "index" : {
-      "tx_new" : {
+      "tx_new_1" : {
          "columns" : [
             "tx_new"
          ],
-         "name" : "tx_new",
+         "name" : "tx_new_1",
          "type" : "index"
       },
-      "tx_prev" : {
+      "tx_prev_1" : {
          "columns" : [
             "tx_prev"
          ],
-         "name" : "tx_prev",
+         "name" : "tx_prev_1",
          "type" : "index"
       }
    },
