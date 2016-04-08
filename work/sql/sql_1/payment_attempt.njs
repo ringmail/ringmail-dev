@@ -43,7 +43,6 @@
          "type" : "record"
       },
       "result" : {
-         "default" : "",
          "length" : "16",
          "name" : "result",
          "null" : 0,
