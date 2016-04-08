@@ -71,6 +71,13 @@
          "name" : "card_id_1",
          "type" : "index"
       },
+      "payment-proc_id" : {
+         "columns" : [
+            "proc_id"
+         ],
+         "name" : "payment-proc_id",
+         "type" : "index"
+      },
       "ref_id_1" : {
          "columns" : [
             "ref_id(12)"

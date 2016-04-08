@@ -62,18 +62,18 @@
       }
    },
    "index" : {
-      "account_id" : {
+      "account_1" : {
          "columns" : [
             "account"
          ],
-         "name" : "account_id",
+         "name" : "account_1",
          "type" : "index"
       },
-      "card_id" : {
+      "card_id_1" : {
          "columns" : [
             "card_id"
          ],
-         "name" : "card_id",
+         "name" : "card_id_1",
          "type" : "index"
       },
       "payment_attempt-error_id" : {
@@ -90,18 +90,18 @@
          "name" : "payment_id",
          "type" : "index"
       },
-      "proc_id" : {
+      "proc_id_1" : {
          "columns" : [
             "proc_id"
          ],
-         "name" : "proc_id",
+         "name" : "proc_id_1",
          "type" : "index"
       },
-      "user_id" : {
+      "user_1" : {
          "columns" : [
             "user_id"
          ],
-         "name" : "user_id",
+         "name" : "user_1",
          "type" : "index"
       }
    },
