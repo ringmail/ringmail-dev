@@ -32,6 +32,13 @@
       }
    },
    "index" : {
+      "account-last_tx" : {
+         "columns" : [
+            "last_tx"
+         ],
+         "name" : "account-last_tx",
+         "type" : "index"
+      },
       "user_1" : {
          "columns" : [
             "user_id"

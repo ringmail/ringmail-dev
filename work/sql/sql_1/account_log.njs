@@ -38,6 +38,13 @@
       }
    },
    "index" : {
+      "account_log-account_id" : {
+         "columns" : [
+            "account_id"
+         ],
+         "name" : "account_log-account_id",
+         "type" : "index"
+      },
       "tx_new_1" : {
          "columns" : [
             "tx_new"
