@@ -38,26 +38,12 @@
       }
    },
    "index" : {
-      "skey_1" : {
+      "skey" : {
          "columns" : [
             "skey"
          ],
-         "name" : "skey_1",
+         "name" : "skey",
          "type" : "unique"
-      },
-      "ts_created_1" : {
-         "columns" : [
-            "ts_created"
-         ],
-         "name" : "ts_created_1",
-         "type" : "index"
-      },
-      "ts_expires_1" : {
-         "columns" : [
-            "ts_expires"
-         ],
-         "name" : "ts_expires_1",
-         "type" : "index"
       }
    },
    "primary_key" : {
