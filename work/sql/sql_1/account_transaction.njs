@@ -40,39 +40,39 @@
       }
    },
    "index" : {
-      "acct_dst" : {
+      "acct_dst_1" : {
          "columns" : [
             "acct_dst"
          ],
-         "name" : "acct_dst",
+         "name" : "acct_dst_1",
          "type" : "index"
       },
-      "acct_src" : {
+      "acct_src_1" : {
          "columns" : [
             "acct_src"
          ],
-         "name" : "acct_src",
+         "name" : "acct_src_1",
          "type" : "index"
       },
-      "entity" : {
+      "entity_1" : {
          "columns" : [
             "entity"
          ],
-         "name" : "entity",
+         "name" : "entity_1",
          "type" : "index"
       },
-      "tx_type" : {
+      "tx_type_1" : {
          "columns" : [
             "tx_type"
          ],
-         "name" : "tx_type",
+         "name" : "tx_type_1",
          "type" : "index"
       },
-      "user_id" : {
+      "user_1" : {
          "columns" : [
             "user_id"
          ],
-         "name" : "user_id",
+         "name" : "user_1",
          "type" : "index"
       }
    },
