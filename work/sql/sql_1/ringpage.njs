@@ -1,23 +1,9 @@
 {
    "columns" : {
-      "link" : {
-         "default" : "",
-         "length" : "64k",
-         "name" : "link",
-         "null" : 0,
-         "type" : "text"
-      },
       "ringpage" : {
          "default" : "",
          "length" : "128",
          "name" : "ringpage",
-         "null" : 0,
-         "type" : "text"
-      },
-      "ringurl" : {
-         "default" : "",
-         "length" : "64k",
-         "name" : "ringurl",
          "null" : 0,
          "type" : "text"
       },
