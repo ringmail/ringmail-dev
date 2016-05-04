@@ -1,16 +1,9 @@
 {
    "columns" : {
-      "path" : {
+      "category" : {
          "default" : "",
-         "length" : "128",
-         "name" : "path",
-         "null" : 0,
-         "type" : "text"
-      },
-      "template" : {
-         "default" : "",
-         "length" : "128",
-         "name" : "template",
+         "length" : "255",
+         "name" : "category",
          "null" : 0,
          "type" : "text"
       },
@@ -22,11 +15,11 @@
       }
    },
    "index" : {
-      "template" : {
+      "category" : {
          "columns" : [
-            "template"
+            "category"
          ],
-         "name" : "template",
+         "name" : "category",
          "type" : "unique"
       }
    },

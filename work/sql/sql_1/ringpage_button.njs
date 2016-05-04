@@ -12,6 +12,12 @@
          "table" : "ringpage",
          "type" : "record"
       },
+      "timestamp" : {
+         "name" : "timestamp",
+         "null" : 0,
+         "timestamp" : 1,
+         "type" : "datetime"
+      },
       "user_id" : {
          "name" : "user_id",
          "null" : 0,

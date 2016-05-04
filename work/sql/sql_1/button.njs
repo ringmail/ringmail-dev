@@ -7,6 +7,12 @@
          "null" : 0,
          "type" : "text"
       },
+      "timestamp" : {
+         "name" : "timestamp",
+         "null" : 1,
+         "timestamp" : 1,
+         "type" : "datetime"
+      },
       "uri" : {
          "default" : "",
          "length" : "64k",
