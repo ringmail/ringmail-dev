@@ -1,5 +1,11 @@
 {
    "columns" : {
+      "category_id" : {
+         "name" : "category_id",
+         "null" : 1,
+         "table" : "category",
+         "type" : "record"
+      },
       "hashtag" : {
          "default" : "",
          "length" : "255",
@@ -23,6 +29,7 @@
       "user_id" : {
          "name" : "user_id",
          "null" : 0,
+         "table" : "ring_user",
          "type" : "record"
       }
    },
@@ -33,6 +40,13 @@
          ],
          "name" : "hashtag_1",
          "type" : "unique"
+      },
+      "ring_hashtag-category_id" : {
+         "columns" : [
+            "category_id"
+         ],
+         "name" : "ring_hashtag-category_id",
+         "type" : "index"
       },
       "ts_expires_1" : {
          "columns" : [
