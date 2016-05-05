@@ -1,5 +1,54 @@
 {
    "columns" : {
+      "body_background_color" : {
+         "default" : "",
+         "length" : "64k",
+         "name" : "body_background_color",
+         "null" : 0,
+         "type" : "text"
+      },
+      "body_background_image" : {
+         "default" : "",
+         "length" : "64k",
+         "name" : "body_background_image",
+         "null" : 0,
+         "type" : "text"
+      },
+      "body_text_color" : {
+         "default" : "",
+         "length" : "64k",
+         "name" : "body_text_color",
+         "null" : 0,
+         "type" : "text"
+      },
+      "footer_background_color" : {
+         "default" : "",
+         "length" : "64k",
+         "name" : "footer_background_color",
+         "null" : 0,
+         "type" : "text"
+      },
+      "footer_text_color" : {
+         "default" : "",
+         "length" : "64k",
+         "name" : "footer_text_color",
+         "null" : 0,
+         "type" : "text"
+      },
+      "header_background_color" : {
+         "default" : "",
+         "length" : "64k",
+         "name" : "header_background_color",
+         "null" : 0,
+         "type" : "text"
+      },
+      "header_text_color" : {
+         "default" : "",
+         "length" : "64k",
+         "name" : "header_text_color",
+         "null" : 0,
+         "type" : "text"
+      },
       "ringpage" : {
          "default" : "",
          "length" : "128",
