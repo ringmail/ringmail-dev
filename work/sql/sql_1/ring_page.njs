@@ -14,6 +14,20 @@
          "null" : 0,
          "type" : "text"
       },
+      "body_header" : {
+         "default" : "",
+         "length" : "64k",
+         "name" : "body_header",
+         "null" : 0,
+         "type" : "text"
+      },
+      "body_text" : {
+         "default" : "",
+         "length" : "64k",
+         "name" : "body_text",
+         "null" : 0,
+         "type" : "text"
+      },
       "body_text_color" : {
          "default" : "",
          "length" : "64k",
@@ -25,6 +39,13 @@
          "default" : "",
          "length" : "64k",
          "name" : "footer_background_color",
+         "null" : 0,
+         "type" : "text"
+      },
+      "footer_text" : {
+         "default" : "",
+         "length" : "64k",
+         "name" : "footer_text",
          "null" : 0,
          "type" : "text"
       },
@@ -42,10 +63,24 @@
          "null" : 0,
          "type" : "text"
       },
+      "header_subtitle" : {
+         "default" : "",
+         "length" : "64k",
+         "name" : "header_subtitle",
+         "null" : 0,
+         "type" : "text"
+      },
       "header_text_color" : {
          "default" : "",
          "length" : "64k",
          "name" : "header_text_color",
+         "null" : 0,
+         "type" : "text"
+      },
+      "header_title" : {
+         "default" : "",
+         "length" : "64k",
+         "name" : "header_title",
          "null" : 0,
          "type" : "text"
       },
