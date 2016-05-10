@@ -7,6 +7,12 @@
          "null" : 0,
          "type" : "text"
       },
+      "ringpage_id" : {
+         "name" : "ringpage_id",
+         "null" : 0,
+         "table" : "ring_page",
+         "type" : "record"
+      },
       "timestamp" : {
          "name" : "timestamp",
          "null" : 1,
