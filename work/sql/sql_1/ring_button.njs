@@ -40,6 +40,13 @@
          ],
          "name" : "button-user_id",
          "type" : "index"
+      },
+      "ring_button-ringpage_id" : {
+         "columns" : [
+            "ringpage_id"
+         ],
+         "name" : "ring_button-ringpage_id",
+         "type" : "index"
       }
    },
    "primary_key" : {
