@@ -13,6 +13,12 @@
          "null" : 0,
          "type" : "text"
       },
+      "ringpage_id" : {
+         "name" : "ringpage_id",
+         "null" : 1,
+         "table" : "ring_page",
+         "type" : "record"
+      },
       "target_url" : {
          "default_null" : 1,
          "length" : "64k",
@@ -46,6 +52,13 @@
             "category_id"
          ],
          "name" : "ring_hashtag-category_id",
+         "type" : "index"
+      },
+      "ring_hashtag-ringpage_id" : {
+         "columns" : [
+            "ringpage_id"
+         ],
+         "name" : "ring_hashtag-ringpage_id",
          "type" : "index"
       },
       "ts_expires_1" : {
