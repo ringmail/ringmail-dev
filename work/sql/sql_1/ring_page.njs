@@ -84,6 +84,12 @@
          "null" : 0,
          "type" : "text"
       },
+      "offer" : {
+         "default" : "0",
+         "name" : "offer",
+         "null" : 0,
+         "type" : "boolean"
+      },
       "ringpage" : {
          "default" : "",
          "length" : "128",
@@ -108,6 +114,12 @@
          "null" : 0,
          "table" : "ring_user",
          "type" : "record"
+      },
+      "video" : {
+         "default" : "0",
+         "name" : "video",
+         "null" : 0,
+         "type" : "boolean"
       }
    },
    "index" : {
