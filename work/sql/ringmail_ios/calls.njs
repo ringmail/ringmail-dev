@@ -1,11 +1,10 @@
 {
    "columns" : {
       "call_duration" : {
-         "default" : "",
-         "length" : "64k",
+         "default" : "0",
          "name" : "call_duration",
-         "null" : 0,
-         "type" : "text"
+         "null" : 1,
+         "type" : "integer"
       },
       "call_inbound" : {
          "default" : "0",
@@ -22,9 +21,17 @@
       },
       "call_state" : {
          "default" : "0",
+         "length" : "64k",
          "name" : "call_state",
          "null" : 0,
-         "type" : "integer"
+         "type" : "text"
+      },
+      "call_status" : {
+         "default" : "",
+         "length" : "64k",
+         "name" : "call_status",
+         "null" : 1,
+         "type" : "text"
       },
       "call_time" : {
          "default" : "",
@@ -34,10 +41,10 @@
          "type" : "text"
       },
       "call_uuid" : {
-         "default" : "",
+         "default_null" : 1,
          "length" : "64k",
          "name" : "call_uuid",
-         "null" : 0,
+         "null" : 1,
          "type" : "text"
       },
       "session_id" : {
