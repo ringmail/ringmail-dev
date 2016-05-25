@@ -1,5 +1,17 @@
 {
    "columns" : {
+      "favorite" : {
+         "default" : "0",
+         "name" : "favorite",
+         "null" : 0,
+         "type" : "boolean"
+      },
+      "hide" : {
+         "default" : "0",
+         "name" : "hide",
+         "null" : 0,
+         "type" : "integer"
+      },
       "session_md5" : {
          "default" : "",
          "length" : "64k",
