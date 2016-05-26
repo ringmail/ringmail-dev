@@ -6,6 +6,13 @@
          "null" : 0,
          "type" : "boolean"
       },
+      "aws_user_id" : {
+         "default_null" : 1,
+         "length" : "32",
+         "name" : "aws_user_id",
+         "null" : 1,
+         "type" : "text"
+      },
       "login" : {
          "length" : "255",
          "name" : "login",
@@ -54,6 +61,13 @@
       }
    },
    "index" : {
+      "aws_user_id_1" : {
+         "columns" : [
+            "aws_user_id"
+         ],
+         "name" : "aws_user_id_1",
+         "type" : "unique"
+      },
       "login_1" : {
          "columns" : [
             "login"
