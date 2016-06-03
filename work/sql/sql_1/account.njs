@@ -32,11 +32,11 @@
       }
    },
    "index" : {
-      "account-last_tx" : {
+      "last_tx_1" : {
          "columns" : [
             "last_tx"
          ],
-         "name" : "account-last_tx",
+         "name" : "last_tx_1",
          "type" : "index"
       },
       "user_1" : {

@@ -36,6 +36,13 @@
       }
    },
    "index" : {
+      "did_id_1" : {
+         "columns" : [
+            "did_id"
+         ],
+         "name" : "did_id_1",
+         "type" : "index"
+      },
       "user_id_1" : {
          "columns" : [
             "user_id",

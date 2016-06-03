@@ -61,6 +61,13 @@
          "name" : "entity_1",
          "type" : "index"
       },
+      "ts_1" : {
+         "columns" : [
+            "ts"
+         ],
+         "name" : "ts_1",
+         "type" : "index"
+      },
       "tx_type_1" : {
          "columns" : [
             "tx_type"

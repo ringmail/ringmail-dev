@@ -14,11 +14,11 @@
       }
    },
    "index" : {
-      "account_name-account_id" : {
+      "account_id_1" : {
          "columns" : [
             "account"
          ],
-         "name" : "account_name-account_id",
+         "name" : "account_id_1",
          "type" : "index"
       },
       "name_1" : {

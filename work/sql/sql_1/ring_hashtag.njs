@@ -40,6 +40,13 @@
       }
    },
    "index" : {
+      "category_id_1" : {
+         "columns" : [
+            "category_id"
+         ],
+         "name" : "category_id_1",
+         "type" : "index"
+      },
       "hashtag_1" : {
          "columns" : [
             "hashtag"
@@ -47,18 +54,11 @@
          "name" : "hashtag_1",
          "type" : "unique"
       },
-      "ring_hashtag-category_id" : {
-         "columns" : [
-            "category_id"
-         ],
-         "name" : "ring_hashtag-category_id",
-         "type" : "index"
-      },
-      "ring_hashtag-ringpage_id" : {
+      "ringpage_id_1" : {
          "columns" : [
             "ringpage_id"
          ],
-         "name" : "ring_hashtag-ringpage_id",
+         "name" : "ringpage_id_1",
          "type" : "index"
       },
       "ts_expires_1" : {

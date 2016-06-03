@@ -44,6 +44,20 @@
          ],
          "name" : "skey_1",
          "type" : "unique"
+      },
+      "ts_created_1" : {
+         "columns" : [
+            "ts_created"
+         ],
+         "name" : "ts_created_1",
+         "type" : "index"
+      },
+      "ts_expires_1" : {
+         "columns" : [
+            "ts_expires"
+         ],
+         "name" : "ts_expires_1",
+         "type" : "index"
       }
    },
    "primary_key" : {

@@ -71,13 +71,6 @@
          "name" : "card_id_1",
          "type" : "index"
       },
-      "payment-proc_id" : {
-         "columns" : [
-            "proc_id"
-         ],
-         "name" : "payment-proc_id",
-         "type" : "index"
-      },
       "ref_id_1" : {
          "columns" : [
             "ref_id(12)"
@@ -85,11 +78,25 @@
          "name" : "ref_id_1",
          "type" : "index"
       },
+      "ref_id_2" : {
+         "columns" : [
+            "ref_id_2(12)"
+         ],
+         "name" : "ref_id_2",
+         "type" : "index"
+      },
       "reversed_1" : {
          "columns" : [
             "reversed"
          ],
          "name" : "reversed_1",
+         "type" : "index"
+      },
+      "ts_1" : {
+         "columns" : [
+            "ts"
+         ],
+         "name" : "ts_1",
          "type" : "index"
       },
       "user_1" : {
