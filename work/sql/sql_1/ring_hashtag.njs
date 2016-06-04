@@ -1,10 +1,11 @@
 {
    "columns" : {
-      "category_id" : {
-         "name" : "category_id",
-         "null" : 1,
-         "table" : "category",
-         "type" : "record"
+      "category" : {
+         "default" : "",
+         "length" : "255",
+         "name" : "category",
+         "null" : 0,
+         "type" : "text"
       },
       "hashtag" : {
          "default" : "",
@@ -46,13 +47,6 @@
          ],
          "name" : "hashtag_1",
          "type" : "unique"
-      },
-      "ring_hashtag-category_id" : {
-         "columns" : [
-            "category_id"
-         ],
-         "name" : "ring_hashtag-category_id",
-         "type" : "index"
       },
       "ring_hashtag-ringpage_id" : {
          "columns" : [
