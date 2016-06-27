@@ -6,8 +6,8 @@
          "table" : "ring_hashtag",
          "type" : "record"
       },
-      "transaction" : {
-         "name" : "transaction",
+      "transaction_id" : {
+         "name" : "transaction_id",
          "null" : 1,
          "table" : "account_transaction",
          "type" : "record"
@@ -38,6 +38,13 @@
             "user_id"
          ],
          "name" : "ring_cart-user_id",
+         "type" : "index"
+      },
+      "ring_cart-transaction_id" : {
+         "columns" : [
+            "transaction_id"
+         ],
+         "name" : "ring_cart-transaction_id",
          "type" : "index"
       }
    },
