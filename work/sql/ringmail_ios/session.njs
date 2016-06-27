@@ -1,5 +1,10 @@
 {
    "columns" : {
+      "contact_id" : {
+         "name" : "contact_id",
+         "null" : 1,
+         "type" : "record"
+      },
       "favorite" : {
          "default" : "0",
          "name" : "favorite",
@@ -11,6 +16,13 @@
          "name" : "hide",
          "null" : 0,
          "type" : "integer"
+      },
+      "label" : {
+         "default_null" : 1,
+         "length" : "255",
+         "name" : "label",
+         "null" : 1,
+         "type" : "text"
       },
       "session_md5" : {
          "default" : "",
@@ -39,6 +51,13 @@
       }
    },
    "index" : {
+      "contact_id_1" : {
+         "columns" : [
+            "contact_id"
+         ],
+         "name" : "contact_id_1",
+         "type" : "unique"
+      },
       "session_md5_1" : {
          "columns" : [
             "session_md5"

@@ -20,7 +20,7 @@
          "type" : "text"
       },
       "password_chat" : {
-         "default" : "NULL",
+         "default_null" : 1,
          "length" : "32",
          "name" : "password_chat",
          "null" : 1,

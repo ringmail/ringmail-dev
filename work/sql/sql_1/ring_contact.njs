@@ -69,6 +69,14 @@
          ],
          "name" : "user_id_1",
          "type" : "index"
+      },
+      "user_id_2" : {
+         "columns" : [
+            "user_id",
+            "matched_user_id"
+         ],
+         "name" : "user_id_2",
+         "type" : "index"
       }
    },
    "primary_key" : {
