@@ -14,11 +14,12 @@
          "null" : 0,
          "type" : "text"
       },
-      "template_id" : {
-         "name" : "template_id",
+      "template" : {
+         "default" : "",
+         "length" : "255",
+         "name" : "template",
          "null" : 0,
-         "table" : "template",
-         "type" : "record"
+         "type" : "text"
       },
       "timestamp" : {
          "name" : "timestamp",
@@ -34,13 +35,6 @@
       }
    },
    "index" : {
-      "ringpage-template_id" : {
-         "columns" : [
-            "template_id"
-         ],
-         "name" : "ringpage-template_id",
-         "type" : "index"
-      },
       "ringpage-user_id" : {
          "columns" : [
             "user_id"

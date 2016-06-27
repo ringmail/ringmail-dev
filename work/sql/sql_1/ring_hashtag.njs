@@ -1,10 +1,11 @@
 {
    "columns" : {
-      "category_id" : {
-         "name" : "category_id",
-         "null" : 1,
-         "table" : "category",
-         "type" : "record"
+      "category" : {
+         "default" : "",
+         "length" : "255",
+         "name" : "category",
+         "null" : 0,
+         "type" : "text"
       },
       "hashtag" : {
          "default" : "",
