@@ -26,25 +26,25 @@
       }
    },
    "index" : {
-      "ring_cart-hashtag_id" : {
+      "hashtag_id_1" : {
          "columns" : [
             "hashtag_id"
          ],
-         "name" : "ring_cart-hashtag_id",
+         "name" : "hashtag_id_1",
          "type" : "index"
       },
-      "ring_cart-user_id" : {
-         "columns" : [
-            "user_id"
-         ],
-         "name" : "ring_cart-user_id",
-         "type" : "index"
-      },
-      "ring_cart-transaction_id" : {
+      "transaction_id_1" : {
          "columns" : [
             "transaction_id"
          ],
-         "name" : "ring_cart-transaction_id",
+         "name" : "transaction_id_1",
+         "type" : "index"
+      },
+      "user_id_1" : {
+         "columns" : [
+            "user_id"
+         ],
+         "name" : "user_id_1",
          "type" : "index"
       }
    },

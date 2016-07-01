@@ -35,11 +35,11 @@
       }
    },
    "index" : {
-      "ringpage-user_id" : {
+      "user_id_1" : {
          "columns" : [
             "user_id"
          ],
-         "name" : "ringpage-user_id",
+         "name" : "user_id_1",
          "type" : "index"
       }
    },
