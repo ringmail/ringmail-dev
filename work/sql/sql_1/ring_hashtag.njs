@@ -1,11 +1,10 @@
 {
    "columns" : {
-      "category" : {
-         "default" : "",
-         "length" : "255",
-         "name" : "category",
-         "null" : 0,
-         "type" : "text"
+      "category_id" : {
+         "name" : "category_id",
+         "null" : 1,
+         "table" : "ring_category",
+         "type" : "record"
       },
       "hashtag" : {
          "default" : "",
@@ -41,6 +40,7 @@
       }
    },
    "index" : {
+<<<<<<< HEAD
       "category_1" : {
          "columns" : [
             "category"
@@ -48,6 +48,8 @@
          "name" : "category_1",
          "type" : "index"
       },
+=======
+>>>>>>> 396135ad8e5c1f7088613cd1d0c21fc94f948721
       "hashtag_1" : {
          "columns" : [
             "hashtag"
