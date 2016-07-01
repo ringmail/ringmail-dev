@@ -1,11 +1,10 @@
 {
    "columns" : {
-      "category" : {
-         "default_null" : 1,
-         "length" : "255",
-         "name" : "category",
+      "category_id" : {
+         "name" : "category_id",
          "null" : 1,
-         "type" : "text"
+         "table" : "ring_category",
+         "type" : "record"
       },
       "hashtag" : {
          "default" : "",
