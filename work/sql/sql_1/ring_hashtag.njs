@@ -1,10 +1,10 @@
 {
    "columns" : {
       "category" : {
-         "default" : "",
+         "default_null" : 1,
          "length" : "255",
          "name" : "category",
-         "null" : 0,
+         "null" : 1,
          "type" : "text"
       },
       "hashtag" : {
@@ -41,13 +41,6 @@
       }
    },
    "index" : {
-      "category_id_1" : {
-         "columns" : [
-            "category_id"
-         ],
-         "name" : "category_id_1",
-         "type" : "index"
-      },
       "hashtag_1" : {
          "columns" : [
             "hashtag"
