@@ -40,7 +40,6 @@
       }
    },
    "index" : {
-<<<<<<< HEAD
       "category_1" : {
          "columns" : [
             "category"
@@ -48,8 +47,6 @@
          "name" : "category_1",
          "type" : "index"
       },
-=======
->>>>>>> 396135ad8e5c1f7088613cd1d0c21fc94f948721
       "hashtag_1" : {
          "columns" : [
             "hashtag"
