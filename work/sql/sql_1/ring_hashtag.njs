@@ -40,11 +40,11 @@
       }
    },
    "index" : {
-      "category_1" : {
+      "category_id_1" : {
          "columns" : [
-            "category"
+            "category_id"
          ],
-         "name" : "category_1",
+         "name" : "category_id_1",
          "type" : "index"
       },
       "hashtag_1" : {
