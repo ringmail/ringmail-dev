@@ -1,5 +1,11 @@
 {
    "columns" : {
+      "active" : {
+         "default" : "1",
+         "name" : "active",
+         "null" : 0,
+         "type" : "boolean"
+      },
       "category_id" : {
          "name" : "category_id",
          "null" : 1,
@@ -12,6 +18,12 @@
          "name" : "hashtag",
          "null" : 0,
          "type" : "text"
+      },
+      "paid" : {
+         "default" : "0",
+         "name" : "paid",
+         "null" : 0,
+         "type" : "boolean"
       },
       "ringpage_id" : {
          "name" : "ringpage_id",
