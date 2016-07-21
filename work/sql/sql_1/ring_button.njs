@@ -7,6 +7,12 @@
          "null" : 0,
          "type" : "text"
       },
+      "position" : {
+         "default_null" : 1,
+         "name" : "position",
+         "null" : 1,
+         "type" : "integer"
+      },
       "ringpage_id" : {
          "name" : "ringpage_id",
          "null" : 0,
