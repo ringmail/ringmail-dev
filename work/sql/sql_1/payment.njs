@@ -71,18 +71,18 @@
          "name" : "card_id_1",
          "type" : "index"
       },
+      "proc_id_1" : {
+         "columns" : [
+            "proc_id"
+         ],
+         "name" : "proc_id_1",
+         "type" : "index"
+      },
       "ref_id_1" : {
          "columns" : [
             "ref_id(12)"
          ],
          "name" : "ref_id_1",
-         "type" : "index"
-      },
-      "ref_id_2" : {
-         "columns" : [
-            "ref_id_2(12)"
-         ],
-         "name" : "ref_id_2",
          "type" : "index"
       },
       "reversed_1" : {

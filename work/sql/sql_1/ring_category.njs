@@ -27,6 +27,13 @@
          ],
          "name" : "category",
          "type" : "unique"
+      },
+      "category_id_1" : {
+         "columns" : [
+            "category_id"
+         ],
+         "name" : "category_id_1",
+         "type" : "index"
       }
    },
    "primary_key" : {

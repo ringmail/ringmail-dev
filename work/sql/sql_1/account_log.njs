@@ -38,6 +38,13 @@
       }
    },
    "index" : {
+      "account_id_1" : {
+         "columns" : [
+            "account_id"
+         ],
+         "name" : "account_id_1",
+         "type" : "index"
+      },
       "tx_new_1" : {
          "columns" : [
             "tx_new"
