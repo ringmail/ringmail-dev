@@ -1,5 +1,11 @@
 {
    "columns" : {
+      "ts_created" : {
+         "name" : "ts_created",
+         "null" : 0,
+         "timestamp" : 1,
+         "type" : "datetime"
+      },
       "user_id" : {
          "name" : "user_id",
          "null" : 0,
