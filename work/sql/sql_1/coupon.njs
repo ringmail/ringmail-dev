@@ -1,5 +1,11 @@
 {
    "columns" : {
+      "amount" : {
+         "default" : "0",
+         "name" : "amount",
+         "null" : 0,
+         "type" : "currency"
+      },
       "code" : {
          "default" : "",
          "length" : "8",
