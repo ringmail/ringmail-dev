@@ -3,7 +3,7 @@
       "coupon_id" : {
          "name" : "coupon_id",
          "null" : 1,
-         "table" : "coupon",
+         "table" : "ring_coupon",
          "type" : "record"
       },
       "hashtag_id" : {
