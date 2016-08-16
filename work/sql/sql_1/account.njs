@@ -31,6 +31,26 @@
          "type" : "record"
       }
    },
+   "constraint" : {
+      "account-id" : {
+         "columns" : [
+            "id"
+         ],
+         "name" : "account-id",
+         "reference_columns" : "id",
+         "reference_table" : "note_sequence",
+         "type" : "constraint"
+      },
+      "account-last_tx" : {
+         "columns" : [
+            "last_tx"
+         ],
+         "name" : "account-last_tx",
+         "reference_columns" : "id",
+         "reference_table" : "account_transaction",
+         "type" : "constraint"
+      }
+   },
    "index" : {
       "last_tx_1" : {
          "columns" : [
@@ -50,23 +70,5 @@
    "primary_key" : {
       "name" : "id",
       "type" : "record"
-   },
-   "constraint" : {
-      "account-id" : {
-         "name" : "account-id",
-         "fields" : [
-            "id"
-         ],
-         "reference_table" : "note_sequence",
-         "reference_fields" : "id"
-      },
-      "account-last_tx" : {
-         "name" : "account-last_tx",
-         "fields" : [
-            "last_tx"
-         ],
-         "reference_table" : "account_transaction",
-         "reference_fields" : "id"
-      }
    }
 }

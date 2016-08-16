@@ -1,0 +1,39 @@
+<div class="modal fade" id="mDeleteConstraint" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title">Delete constraint '<span id="constraint-delete"></span>'</h4>
+			</div>
+			<div class="modal-body">
+				Delete constraint '<span id="constraint-delete-2"></span>'?
+			</div>
+			<div class="modal-footer">
+				<form class="form-condensed" method="post" action="[% page.url(
+					'query' => {
+					'table' => page.form.table,
+					'db' => page.form.db,
+					},
+					) %]">
+					[% page.field(
+					'command' => 'constraint_delete',
+					'type' => 'hidden',
+					'name' => 'item',
+					'opts' => {
+					'id' => 'constraint-delete-3',
+					},
+					) %]
+					<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+					&nbsp;&nbsp;
+					[% page.button(
+					'command' => 'constraint_delete',
+					'text' => 'Delete',
+					'opts' => {
+					'class' => 'btn btn-primary',
+					},
+					) %]
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
