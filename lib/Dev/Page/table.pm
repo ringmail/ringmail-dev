@@ -117,6 +117,8 @@ sub load
 				'columns' => join(', ', @{$idata->{'columns'}}),
 				'reference_table' => $idata->{'reference_table'},
 				'reference_columns' => $idata->{'reference_columns'},
+				'on_update' => $idata->{'on_update'},
+				'on_delete' => $idata->{'on_delete'},
 			});
 		}
 	}
@@ -295,6 +297,8 @@ sub load
                 push @row, join( ', ', @{ $idata->{'columns'} } );
                 push @row, $idata->{'reference_table'};
                 push @row, $idata->{'reference_columns'};
+                push @row, ( defined $idata->{'on_update'} and length $idata->{'on_update'} > 0 ) ? $idata->{'on_update'} : '&nbsp;';
+                push @row, ( defined $idata->{'on_delete'} and length $idata->{'on_delete'} > 0 ) ? $idata->{'on_delete'} : '&nbsp;';
                 my @cmds = ();
                 push @cmds,
                     (
@@ -350,11 +354,10 @@ sub load
 		},
 	);
         $ct->{'constraint_list'} = htable(
-            'fields' => [ 'Name', 'Type', 'Columns', 'Reference Table', 'Reference Columns', 'Command', ],
+            'fields' => [ 'Name', 'Type', 'Columns', 'Reference Table', 'Reference Columns', 'On Update', 'On Delete', 'Command', ],
             'data'   => \@constraint,
             'opts'   => {
                 'class' => 'table table-bordered table-striped table-condensed',
-                'style' => 'width: 700px;',
             },
         );
 	$obj->schema(new Note::SQL::Schema());
@@ -783,6 +786,8 @@ sub constraint_new
 	my $cols = $data->{'columns'};
 	my $reference_table = $data->{'reference_table'};
 	my $reference_columns = $data->{'reference_columns'};
+	my $on_update = $data->{'on_update'};
+	my $on_delete = $data->{'on_delete'};
 	$cols =~ s/\s//g;
 	unless (length($name))
 	{
@@ -838,6 +843,8 @@ sub constraint_new
 		'columns' => \@fs,
 		'reference_table' => $reference_table,
 		'reference_columns' => $reference_columns,
+		'on_update' => $on_update,
+		'on_delete' => $on_delete,
 	};
 	$obj->table_save($tbl);
 }
@@ -972,6 +979,8 @@ sub constraint_edit
 	my $cols = $data->{'columns'};
 	my $reference_table = $data->{'reference_table'};
 	my $reference_columns = $data->{'reference_columns'};
+	my $on_update = $data->{'on_update'};
+	my $on_delete = $data->{'on_delete'};
 	$cols =~ s/\s//g;
 	unless (length($name))
 	{
@@ -1033,6 +1042,8 @@ sub constraint_edit
 		'columns' => \@fs,
 		'reference_table' => $reference_table,
 		'reference_columns' => $reference_columns,
+		'on_update' => $on_update,
+		'on_delete' => $on_delete,
 	};
 	$obj->table_save($tbl);
 }

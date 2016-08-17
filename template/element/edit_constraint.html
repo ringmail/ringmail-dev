@@ -66,8 +66,51 @@
 						</td>
 					</tr>
 					<tr>
-						<th>&nbsp;</th>
+						<th>On Update</th>
 						<td>
+							[% page.field(
+							'command' => 'constraint_edit',
+							'type' => 'select',
+							'name' => 'on_update',
+							'opts' => {
+							'class' => 'form-control',
+							},
+							'select' => [
+							['(None)', ''],
+							['Restrict', 'RESTRICT'],
+							['Cascade', 'CASCADE'],
+							['Set NULL', 'SET NULL'],
+							['No Action', 'NO ACTION'],
+							['Set Default', 'SET DEFAULT'],
+							],
+							'selected' => on_update,
+							) %]
+						</td>
+					</tr>
+					<tr>
+						<th>On Delete</th>
+						<td>
+							[% page.field(
+							'command' => 'constraint_edit',
+							'type' => 'select',
+							'name' => 'on_delete',
+							'opts' => {
+							'class' => 'form-control',
+							},
+							'select' => [
+							['(None)', ''],
+							['Restrict', 'RESTRICT'],
+							['Cascade', 'CASCADE'],
+							['Set NULL', 'SET NULL'],
+							['No Action', 'NO ACTION'],
+							['Set Default', 'SET DEFAULT'],
+							],
+							'selected' => on_delete,
+							) %]
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2" align="center">
 							[% page.button(
 							'command' => 'constraint_edit',
 							'text' => 'Update',

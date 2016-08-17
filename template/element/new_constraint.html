@@ -62,6 +62,48 @@
 						</td>
 					</tr>
 					<tr>
+						<th>On Update</th>
+						<td>
+							[% page.field(
+							'command' => 'constraint_new',
+							'type' => 'select',
+							'name' => 'type',
+							'opts' => {
+							'class' => 'form-control',
+							},
+							'select' => [
+							['(None)', ''],
+							['Restrict', 'RESTRICT'],
+							['Cascade', 'CASCADE'],
+							['Set NULL', 'SET NULL'],
+							['No Action', 'NO ACTION'],
+							['Set Default', 'SET DEFAULT'],
+							],
+							) %]
+						</td>
+					</tr>
+					<tr>
+						<th>On Delete</th>
+						<td>
+							[% page.field(
+							'command' => 'constraint_new',
+							'type' => 'select',
+							'name' => 'type',
+							'opts' => {
+							'class' => 'form-control',
+							},
+							'select' => [
+							['(None)', ''],
+							['Restrict', 'RESTRICT'],
+							['Cascade', 'CASCADE'],
+							['Set NULL', 'SET NULL'],
+							['No Action', 'NO ACTION'],
+							['Set Default', 'SET DEFAULT'],
+							],
+							) %]
+						</td>
+					</tr>
+					<tr>
 						<td colspan="2" align="center">
 							[% page.button(
 							'command' => 'constraint_new',

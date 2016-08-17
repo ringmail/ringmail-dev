@@ -52,6 +52,8 @@
             "hashtag_id"
          ],
          "name" : "ring_cart-hashtag_id",
+         "on_delete" : "CASCADE",
+         "on_update" : "",
          "reference_columns" : "id",
          "reference_table" : "ring_hashtag",
          "type" : "constraint"

@@ -63,6 +63,8 @@
             "ringpage_id"
          ],
          "name" : "ring_button-ringpage_id",
+         "on_delete" : "CASCADE",
+         "on_update" : "",
          "reference_columns" : "id",
          "reference_table" : "ring_page",
          "type" : "constraint"
