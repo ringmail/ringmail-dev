@@ -25,6 +25,26 @@
          "type" : "record"
       }
    },
+   "constraint" : {
+      "ring_phone-id" : {
+         "columns" : [
+            "id"
+         ],
+         "name" : "ring_phone-id",
+         "reference_columns" : "id",
+         "reference_table" : "note_sequence",
+         "type" : "constraint"
+      },
+      "ring_phone-user_id" : {
+         "columns" : [
+            "user_id"
+         ],
+         "name" : "ring_phone-user_id",
+         "reference_columns" : "id",
+         "reference_table" : "ring_user",
+         "type" : "constraint"
+      }
+   },
    "index" : {
       "gruu_1" : {
          "columns" : [

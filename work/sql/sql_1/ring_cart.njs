@@ -37,6 +37,62 @@
          "type" : "record"
       }
    },
+   "constraint" : {
+      "ring_cart-coupon" : {
+         "columns" : [
+            "coupon_id"
+         ],
+         "name" : "ring_cart-coupon",
+         "reference_columns" : "id",
+         "reference_table" : "ring_coupon",
+         "type" : "constraint"
+      },
+      "ring_cart-hashtag_id" : {
+         "columns" : [
+            "hashtag_id"
+         ],
+         "name" : "ring_cart-hashtag_id",
+         "reference_columns" : "id",
+         "reference_table" : "ring_hashtag",
+         "type" : "constraint"
+      },
+      "ring_cart-id" : {
+         "columns" : [
+            "id"
+         ],
+         "name" : "ring_cart-id",
+         "reference_columns" : "id",
+         "reference_table" : "note_sequence",
+         "type" : "constraint"
+      },
+      "ring_cart-order_id" : {
+         "columns" : [
+            "order_id"
+         ],
+         "name" : "ring_cart-order_id",
+         "reference_columns" : "id",
+         "reference_table" : "ring_order",
+         "type" : "constraint"
+      },
+      "ring_cart-transaction_id" : {
+         "columns" : [
+            "transaction_id"
+         ],
+         "name" : "ring_cart-transaction_id",
+         "reference_columns" : "id",
+         "reference_table" : "account_transaction",
+         "type" : "constraint"
+      },
+      "ring_cart-user_id" : {
+         "columns" : [
+            "user_id"
+         ],
+         "name" : "ring_cart-user_id",
+         "reference_columns" : "id",
+         "reference_table" : "ring_user",
+         "type" : "constraint"
+      }
+   },
    "index" : {
       "coupon_1" : {
          "columns" : [

@@ -60,6 +60,17 @@
          "type" : "boolean"
       }
    },
+   "constraint" : {
+      "ring_user-id" : {
+         "columns" : [
+            "id"
+         ],
+         "name" : "ring_user-id",
+         "reference_columns" : "id",
+         "reference_table" : "note_sequence",
+         "type" : "constraint"
+      }
+   },
    "index" : {
       "aws_user_id_1" : {
          "columns" : [

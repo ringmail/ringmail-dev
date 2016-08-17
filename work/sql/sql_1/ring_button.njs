@@ -39,6 +39,35 @@
          "type" : "record"
       }
    },
+   "constraint" : {
+      "button-id" : {
+         "columns" : [
+            "id"
+         ],
+         "name" : "button-id",
+         "reference_columns" : "id",
+         "reference_table" : "note_sequence",
+         "type" : "constraint"
+      },
+      "button-user_id" : {
+         "columns" : [
+            "user_id"
+         ],
+         "name" : "button-user_id",
+         "reference_columns" : "id",
+         "reference_table" : "ring_user",
+         "type" : "constraint"
+      },
+      "ring_button-ringpage_id" : {
+         "columns" : [
+            "ringpage_id"
+         ],
+         "name" : "ring_button-ringpage_id",
+         "reference_columns" : "id",
+         "reference_table" : "ring_page",
+         "type" : "constraint"
+      }
+   },
    "index" : {
       "button-user_id" : {
          "columns" : [

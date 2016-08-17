@@ -1,9 +1,9 @@
 {
    "columns" : {
       "total" : {
-         "default_null" : 1,
+         "default" : "0",
          "name" : "total",
-         "null" : 1,
+         "null" : 0,
          "type" : "currency"
       },
       "transaction_id" : {
@@ -23,6 +23,35 @@
          "null" : 0,
          "table" : "ring_user",
          "type" : "record"
+      }
+   },
+   "constraint" : {
+      "ring_order-id" : {
+         "columns" : [
+            "id"
+         ],
+         "name" : "ring_order-id",
+         "reference_columns" : "id",
+         "reference_table" : "note_sequence",
+         "type" : "constraint"
+      },
+      "ring_order-transaction_id" : {
+         "columns" : [
+            "transaction_id"
+         ],
+         "name" : "ring_order-transaction_id",
+         "reference_columns" : "id",
+         "reference_table" : "account_transaction",
+         "type" : "constraint"
+      },
+      "ring_order-user_id" : {
+         "columns" : [
+            "user_id"
+         ],
+         "name" : "ring_order-user_id",
+         "reference_columns" : "id",
+         "reference_table" : "ring_user",
+         "type" : "constraint"
       }
    },
    "index" : {

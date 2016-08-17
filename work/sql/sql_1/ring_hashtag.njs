@@ -51,6 +51,44 @@
          "type" : "record"
       }
    },
+   "constraint" : {
+      "ring_hashtag-category_id" : {
+         "columns" : [
+            "category_id"
+         ],
+         "name" : "ring_hashtag-category_id",
+         "reference_columns" : "id",
+         "reference_table" : "ring_category",
+         "type" : "constraint"
+      },
+      "ring_hashtag-id" : {
+         "columns" : [
+            "id"
+         ],
+         "name" : "ring_hashtag-id",
+         "reference_columns" : "id",
+         "reference_table" : "note_sequence",
+         "type" : "constraint"
+      },
+      "ring_hashtag-ringpage_id" : {
+         "columns" : [
+            "ringpage_id"
+         ],
+         "name" : "ring_hashtag-ringpage_id",
+         "reference_columns" : "id",
+         "reference_table" : "ring_page",
+         "type" : "constraint"
+      },
+      "ring_hashtag-user_id" : {
+         "columns" : [
+            "user_id"
+         ],
+         "name" : "ring_hashtag-user_id",
+         "reference_columns" : "id",
+         "reference_table" : "ring_user",
+         "type" : "constraint"
+      }
+   },
    "index" : {
       "category_id_1" : {
          "columns" : [
