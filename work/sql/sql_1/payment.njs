@@ -129,7 +129,7 @@
       },
       "ref_id_1" : {
          "columns" : [
-            "ref_id(12)"
+            "ref_id"
          ],
          "name" : "ref_id_1",
          "type" : "index"
