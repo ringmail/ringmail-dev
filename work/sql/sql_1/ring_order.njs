@@ -1,7 +1,7 @@
 {
    "columns" : {
       "total" : {
-         "default" : "0",
+         "default" : "0.00",
          "name" : "total",
          "null" : 0,
          "type" : "currency"

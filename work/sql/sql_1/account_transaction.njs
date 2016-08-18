@@ -11,6 +11,7 @@
          "type" : "record"
       },
       "amount" : {
+         "default" : "0.00",
          "name" : "amount",
          "null" : 0,
          "type" : "currency"

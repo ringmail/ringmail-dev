@@ -13,8 +13,8 @@
          "table" : "ring_category",
          "type" : "record"
       },
-      "timestamp" : {
-         "name" : "timestamp",
+      "ts" : {
+         "name" : "ts",
          "null" : 0,
          "timestamp" : 1,
          "type" : "datetime"

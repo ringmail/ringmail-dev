@@ -19,8 +19,8 @@
          "table" : "ring_page",
          "type" : "record"
       },
-      "timestamp" : {
-         "name" : "timestamp",
+      "ts" : {
+         "name" : "ts",
          "null" : 1,
          "timestamp" : 1,
          "type" : "datetime"
