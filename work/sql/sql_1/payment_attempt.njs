@@ -141,11 +141,11 @@
          "name" : "card_id_1",
          "type" : "index"
       },
-      "payment_attempt-error_id" : {
+      "error_id_1" : {
          "columns" : [
             "error"
          ],
-         "name" : "error",
+         "name" : "error_id_1",
          "type" : "index"
       },
       "payment_id" : {

@@ -40,22 +40,15 @@
       }
    },
    "constraint" : {
-      "button-id" : {
+      "ring_button-id" : {
          "columns" : [
             "id"
          ],
-         "name" : "button-id",
+         "name" : "ring_button-id",
+         "on_delete" : "",
+         "on_update" : "",
          "reference_columns" : "id",
          "reference_table" : "note_sequence",
-         "type" : "constraint"
-      },
-      "button-user_id" : {
-         "columns" : [
-            "user_id"
-         ],
-         "name" : "button-user_id",
-         "reference_columns" : "id",
-         "reference_table" : "ring_user",
          "type" : "constraint"
       },
       "ring_button-ringpage_id" : {
@@ -68,21 +61,32 @@
          "reference_columns" : "id",
          "reference_table" : "ring_page",
          "type" : "constraint"
-      }
-   },
-   "index" : {
-      "button-user_id" : {
+      },
+      "ring_button-user_id" : {
          "columns" : [
             "user_id"
          ],
-         "name" : "button-user_id",
-         "type" : "index"
-      },
-      "ring_button-ringpage_id" : {
+         "name" : "ring_button-user_id",
+         "on_delete" : "",
+         "on_update" : "",
+         "reference_columns" : "id",
+         "reference_table" : "ring_user",
+         "type" : "constraint"
+      }
+   },
+   "index" : {
+      "ringpage_id_1" : {
          "columns" : [
             "ringpage_id"
          ],
-         "name" : "ring_button-ringpage_id",
+         "name" : "ringpage_id_1",
+         "type" : "index"
+      },
+      "user_id_1" : {
+         "columns" : [
+            "user_id"
+         ],
+         "name" : "user_id_1",
          "type" : "index"
       }
    },
