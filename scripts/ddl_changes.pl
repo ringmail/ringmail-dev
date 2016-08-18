@@ -36,7 +36,7 @@ for my $link ( @{$links} ) {
 
     $mech->get( $link, );
 
-    my @code = $mech->look_down( '_tag', 'code', );
+    my @code = $mech->find( 'code', );
 
     next if $#code == 1;
 
