@@ -33,29 +33,35 @@
       }
    },
    "constraint" : {
-      "coupon-id" : {
+      "ring_coupon-id" : {
          "columns" : [
             "id"
          ],
-         "name" : "coupon-id",
+         "name" : "ring_coupon-id",
+         "on_delete" : "",
+         "on_update" : "",
          "reference_columns" : "id",
          "reference_table" : "note_sequence",
          "type" : "constraint"
       },
-      "coupon-transaction_id" : {
+      "ring_coupon-transaction_id" : {
          "columns" : [
             "transaction_id"
          ],
-         "name" : "coupon-transaction_id",
+         "name" : "ring_coupon-transaction_id",
+         "on_delete" : "",
+         "on_update" : "",
          "reference_columns" : "id",
          "reference_table" : "account_transaction",
          "type" : "constraint"
       },
-      "coupon-user_id" : {
+      "ring_coupon-user_id" : {
          "columns" : [
             "user_id"
          ],
-         "name" : "coupon-user_id",
+         "name" : "ring_coupon-user_id",
+         "on_delete" : "",
+         "on_update" : "",
          "reference_columns" : "id",
          "reference_table" : "ring_user",
          "type" : "constraint"
