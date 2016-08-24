@@ -28,3 +28,10 @@ function show_delete_index(item)
 	$('#mDeleteIndex').modal('show');
 }
 
+function show_delete_constraint(item)
+{
+	$('#constraint-delete').html(item);
+	$('#constraint-delete-2').html(item);
+	$('#constraint-delete-3').val(item);
+	$('#mDeleteConstraint').modal('show');
+}

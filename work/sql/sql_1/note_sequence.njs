@@ -1,7 +1,7 @@
 {
    "columns" : {
-      "timestamp" : {
-         "name" : "timestamp",
+      "ts" : {
+         "name" : "ts",
          "null" : 0,
          "timestamp" : 1,
          "type" : "datetime"

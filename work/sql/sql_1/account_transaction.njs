@@ -11,6 +11,7 @@
          "type" : "record"
       },
       "amount" : {
+         "default" : "0.00",
          "name" : "amount",
          "null" : 0,
          "type" : "currency"
@@ -37,6 +38,62 @@
          "name" : "user_id",
          "null" : 1,
          "type" : "record"
+      }
+   },
+   "constraint" : {
+      "account_transaction-acct_dst" : {
+         "columns" : [
+            "acct_dst"
+         ],
+         "name" : "account_transaction-acct_dst",
+         "reference_columns" : "id",
+         "reference_table" : "account",
+         "type" : "constraint"
+      },
+      "account_transaction-acct_src" : {
+         "columns" : [
+            "acct_src"
+         ],
+         "name" : "account_transaction-acct_src",
+         "reference_columns" : "id",
+         "reference_table" : "account",
+         "type" : "constraint"
+      },
+      "account_transaction-entity" : {
+         "columns" : [
+            "entity"
+         ],
+         "name" : "account_transaction-entity",
+         "reference_columns" : "id",
+         "reference_table" : "payment",
+         "type" : "constraint"
+      },
+      "account_transaction-id" : {
+         "columns" : [
+            "id"
+         ],
+         "name" : "account_transaction-id",
+         "reference_columns" : "id",
+         "reference_table" : "note_sequence",
+         "type" : "constraint"
+      },
+      "account_transaction-tx_type" : {
+         "columns" : [
+            "tx_type"
+         ],
+         "name" : "account_transaction-tx_type",
+         "reference_columns" : "id",
+         "reference_table" : "account_transaction_type",
+         "type" : "constraint"
+      },
+      "account_transaction-user_id" : {
+         "columns" : [
+            "user_id"
+         ],
+         "name" : "account_transaction-user_id",
+         "reference_columns" : "id",
+         "reference_table" : "ring_user",
+         "type" : "constraint"
       }
    },
    "index" : {

@@ -12,6 +12,7 @@
          "type" : "record"
       },
       "amount" : {
+         "default" : "0.00",
          "name" : "amount",
          "null" : 0,
          "type" : "currency"
@@ -48,12 +49,60 @@
       "ts" : {
          "name" : "ts",
          "null" : 0,
+         "timestamp" : 1,
          "type" : "datetime"
       },
       "user_id" : {
          "name" : "user_id",
          "null" : 0,
          "type" : "record"
+      }
+   },
+   "constraint" : {
+      "payment-account_id" : {
+         "columns" : [
+            "account"
+         ],
+         "name" : "payment-account_id",
+         "reference_columns" : "id",
+         "reference_table" : "account",
+         "type" : "constraint"
+      },
+      "payment-card_id" : {
+         "columns" : [
+            "card_id"
+         ],
+         "name" : "payment-card_id",
+         "reference_columns" : "id",
+         "reference_table" : "payment_card",
+         "type" : "constraint"
+      },
+      "payment-id" : {
+         "columns" : [
+            "id"
+         ],
+         "name" : "payment-id",
+         "reference_columns" : "id",
+         "reference_table" : "note_sequence",
+         "type" : "constraint"
+      },
+      "payment-proc_id" : {
+         "columns" : [
+            "proc_id"
+         ],
+         "name" : "payment-proc_id",
+         "reference_columns" : "id",
+         "reference_table" : "payment_proc",
+         "type" : "constraint"
+      },
+      "payment-user_id" : {
+         "columns" : [
+            "user_id"
+         ],
+         "name" : "payment-user_id",
+         "reference_columns" : "id",
+         "reference_table" : "ring_user",
+         "type" : "constraint"
       }
    },
    "index" : {
@@ -71,18 +120,18 @@
          "name" : "card_id_1",
          "type" : "index"
       },
-      "ref_id_1" : {
+      "proc_id_1" : {
          "columns" : [
-            "ref_id(12)"
+            "proc_id"
          ],
-         "name" : "ref_id_1",
+         "name" : "proc_id_1",
          "type" : "index"
       },
-      "ref_id_2" : {
+      "ref_id_1" : {
          "columns" : [
-            "ref_id_2(12)"
+            "ref_id"
          ],
-         "name" : "ref_id_2",
+         "name" : "ref_id_1",
          "type" : "index"
       },
       "reversed_1" : {

@@ -37,7 +37,52 @@
          "type" : "record"
       }
    },
+   "constraint" : {
+      "account_log-account_id" : {
+         "columns" : [
+            "account_id"
+         ],
+         "name" : "account_log-account_id",
+         "reference_columns" : "id",
+         "reference_table" : "account",
+         "type" : "constraint"
+      },
+      "account_log-id" : {
+         "columns" : [
+            "id"
+         ],
+         "name" : "account_log-id",
+         "reference_columns" : "id",
+         "reference_table" : "note_sequence",
+         "type" : "constraint"
+      },
+      "account_log-tx_new" : {
+         "columns" : [
+            "tx_new"
+         ],
+         "name" : "account_log-tx_new",
+         "reference_columns" : "id",
+         "reference_table" : "account_transaction",
+         "type" : "constraint"
+      },
+      "account_log-tx_prev" : {
+         "columns" : [
+            "tx_prev"
+         ],
+         "name" : "account_log-tx_prev",
+         "reference_columns" : "id",
+         "reference_table" : "account_transaction",
+         "type" : "constraint"
+      }
+   },
    "index" : {
+      "account_id_1" : {
+         "columns" : [
+            "account_id"
+         ],
+         "name" : "account_id_1",
+         "type" : "index"
+      },
       "tx_new_1" : {
          "columns" : [
             "tx_new"

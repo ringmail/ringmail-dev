@@ -19,6 +19,17 @@
          "type" : "text"
       }
    },
+   "constraint" : {
+      "payment_error-id" : {
+         "columns" : [
+            "id"
+         ],
+         "name" : "payment_error-id",
+         "reference_columns" : "id",
+         "reference_table" : "note_sequence",
+         "type" : "constraint"
+      }
+   },
    "index" : {},
    "primary_key" : {
       "name" : "id",

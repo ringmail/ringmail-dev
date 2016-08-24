@@ -1,27 +1,21 @@
 {
    "columns" : {
-      "balance" : {
-         "default" : "0",
-         "name" : "balance",
-         "null" : 1,
+      "total" : {
+         "default" : "0.00",
+         "name" : "total",
+         "null" : 0,
          "type" : "currency"
       },
-      "last_tx" : {
-         "name" : "last_tx",
+      "transaction_id" : {
+         "name" : "transaction_id",
          "null" : 1,
          "table" : "account_transaction",
          "type" : "record"
       },
-      "ts_created" : {
-         "name" : "ts_created",
+      "ts" : {
+         "name" : "ts",
          "null" : 0,
          "timestamp" : 1,
-         "type" : "datetime"
-      },
-      "ts_updated" : {
-         "default_null" : 1,
-         "name" : "ts_updated",
-         "null" : 1,
          "type" : "datetime"
       },
       "user_id" : {
@@ -32,42 +26,52 @@
       }
    },
    "constraint" : {
-      "account-id" : {
+      "ring_order-id" : {
          "columns" : [
             "id"
          ],
-         "name" : "account-id",
+         "name" : "ring_order-id",
          "reference_columns" : "id",
          "reference_table" : "note_sequence",
          "type" : "constraint"
       },
-      "account-last_tx" : {
+      "ring_order-transaction_id" : {
          "columns" : [
-            "last_tx"
+            "transaction_id"
          ],
-         "name" : "account-last_tx",
+         "name" : "ring_order-transaction_id",
          "reference_columns" : "id",
          "reference_table" : "account_transaction",
+         "type" : "constraint"
+      },
+      "ring_order-user_id" : {
+         "columns" : [
+            "user_id"
+         ],
+         "name" : "ring_order-user_id",
+         "reference_columns" : "id",
+         "reference_table" : "ring_user",
          "type" : "constraint"
       }
    },
    "index" : {
-      "last_tx_1" : {
+      "transaction_id_1" : {
          "columns" : [
-            "last_tx"
+            "transaction_id"
          ],
-         "name" : "last_tx_1",
-         "type" : "index"
+         "name" : "transaction_id_1",
+         "type" : "unique"
       },
-      "user_1" : {
+      "user_id_1" : {
          "columns" : [
             "user_id"
          ],
-         "name" : "user_1",
+         "name" : "user_id_1",
          "type" : "index"
       }
    },
    "primary_key" : {
+      "mode" : "auto_inc",
       "name" : "id",
       "type" : "record"
    }

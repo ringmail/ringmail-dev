@@ -1,72 +1,65 @@
 {
    "columns" : {
-      "button" : {
+      "amount" : {
+         "default" : "0.00",
+         "name" : "amount",
+         "null" : 0,
+         "type" : "currency"
+      },
+      "code" : {
          "default" : "",
-         "length" : "64k",
-         "name" : "button",
+         "length" : "8",
+         "name" : "code",
          "null" : 0,
          "type" : "text"
       },
-      "position" : {
-         "default_null" : 1,
-         "name" : "position",
+      "transaction_id" : {
+         "name" : "transaction_id",
          "null" : 1,
-         "type" : "integer"
-      },
-      "ringpage_id" : {
-         "name" : "ringpage_id",
-         "null" : 0,
-         "table" : "ring_page",
+         "table" : "account_transaction",
          "type" : "record"
       },
       "ts" : {
          "name" : "ts",
-         "null" : 1,
+         "null" : 0,
          "timestamp" : 1,
          "type" : "datetime"
       },
-      "uri" : {
-         "default" : "",
-         "length" : "64k",
-         "name" : "uri",
-         "null" : 0,
-         "type" : "text"
-      },
       "user_id" : {
          "name" : "user_id",
-         "null" : 0,
+         "null" : 1,
          "table" : "ring_user",
          "type" : "record"
       }
    },
    "constraint" : {
-      "ring_button-id" : {
+      "ring_coupon-id" : {
          "columns" : [
             "id"
          ],
-         "name" : "ring_button-id",
+         "name" : "ring_coupon-id",
          "on_delete" : "",
          "on_update" : "",
          "reference_columns" : "id",
          "reference_table" : "note_sequence",
          "type" : "constraint"
       },
-      "ring_button-ringpage_id" : {
+      "ring_coupon-transaction_id" : {
          "columns" : [
-            "ringpage_id"
+            "transaction_id"
          ],
-         "name" : "ring_button-ringpage_id",
-         "on_delete" : "CASCADE",
+         "name" : "ring_coupon-transaction_id",
+         "on_delete" : "",
          "on_update" : "",
          "reference_columns" : "id",
-         "reference_table" : "ring_page",
+         "reference_table" : "account_transaction",
          "type" : "constraint"
       },
-      "ring_button-user_id" : {
+      "ring_coupon-user_id" : {
          "columns" : [
             "user_id"
          ],
-         "name" : "ring_button-user_id",
+         "name" : "ring_coupon-user_id",
          "on_delete" : "",
          "on_update" : "",
          "reference_columns" : "id",
@@ -75,11 +68,18 @@
       }
    },
    "index" : {
-      "ringpage_id_1" : {
+      "code_1" : {
          "columns" : [
-            "ringpage_id"
+            "code"
          ],
-         "name" : "ringpage_id_1",
+         "name" : "code_1",
+         "type" : "unique"
+      },
+      "transaction_id_1" : {
+         "columns" : [
+            "transaction_id"
+         ],
+         "name" : "transaction_id_1",
          "type" : "index"
       },
       "user_id_1" : {

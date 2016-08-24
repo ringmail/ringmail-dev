@@ -1,28 +1,7 @@
 {
    "columns" : {
-      "fields" : {
-         "default_null" : 1,
-         "length" : "64k",
-         "name" : "fields",
-         "null" : 1,
-         "type" : "text"
-      },
-      "ringpage" : {
-         "default" : "",
-         "length" : "128",
-         "name" : "ringpage",
-         "null" : 0,
-         "type" : "text"
-      },
-      "template" : {
-         "default" : "",
-         "length" : "255",
-         "name" : "template",
-         "null" : 0,
-         "type" : "text"
-      },
-      "ts" : {
-         "name" : "ts",
+      "ts_created" : {
+         "name" : "ts_created",
          "null" : 0,
          "timestamp" : 1,
          "type" : "datetime"
@@ -35,20 +14,20 @@
       }
    },
    "constraint" : {
-      "ringpage-id" : {
+      "ring_user_admin-id" : {
          "columns" : [
             "id"
          ],
-         "name" : "ringpage-id",
+         "name" : "ring_user_admin-id",
          "reference_columns" : "id",
          "reference_table" : "note_sequence",
          "type" : "constraint"
       },
-      "ringpage-user_id" : {
+      "ring_user_admin-user_id" : {
          "columns" : [
             "user_id"
          ],
-         "name" : "ringpage-user_id",
+         "name" : "ring_user_admin-user_id",
          "reference_columns" : "id",
          "reference_table" : "ring_user",
          "type" : "constraint"
@@ -60,7 +39,7 @@
             "user_id"
          ],
          "name" : "user_id_1",
-         "type" : "index"
+         "type" : "unique"
       }
    },
    "primary_key" : {

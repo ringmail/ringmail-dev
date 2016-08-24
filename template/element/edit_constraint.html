@@ -1,0 +1,137 @@
+<div class="row">
+	<div class="col-xs-4 col-nogutter">
+		<div class="well well-condensed">
+			<div class="dev-heading" style="text-align: center;">Edit Constraint</div>
+			<form method="post" action="[% page.url(
+				'query' => {
+				'db' => page.form.db,
+				'table' => page.form.table,
+				},
+				) %]" class="form-condensed">
+				<table class="table table-condensed table-nomargin table-vertical">
+					<tr>
+						<th>Name</th>
+						<td>
+							[% page.field(
+							'command' => 'constraint_edit',
+							'type' => 'text',
+							'name' => 'name',
+							'value' => name,
+							'opts' => {
+							'class' => 'form-control input-sm',
+							},
+							) %]
+						</td>
+					</tr>
+					<tr>
+						<th>Columns</th>
+						<td>
+							[% page.field(
+							'command' => 'constraint_edit',
+							'type' => 'text',
+							'name' => 'columns',
+							'value' => columns,
+							'opts' => {
+							'class' => 'form-control input-sm',
+							},
+							) %]
+						</td>
+					</tr>
+					<tr>
+						<th>Reference Table</th>
+						<td>
+							[% page.field(
+							'command' => 'constraint_edit',
+							'type' => 'text',
+							'name' => 'reference_table',
+							'value' => reference_table,
+							'opts' => {
+							'class' => 'form-control input-sm',
+							},
+							) %]
+						</td>
+					</tr>
+					<tr>
+						<th>Reference Columns</th>
+						<td>
+							[% page.field(
+							'command' => 'constraint_edit',
+							'type' => 'text',
+							'name' => 'reference_columns',
+							'value' => reference_columns,
+							'opts' => {
+							'class' => 'form-control input-sm',
+							},
+							) %]
+						</td>
+					</tr>
+					<tr>
+						<th>On Update</th>
+						<td>
+							[% page.field(
+							'command' => 'constraint_edit',
+							'type' => 'select',
+							'name' => 'on_update',
+							'opts' => {
+							'class' => 'form-control',
+							},
+							'select' => [
+							['(None)', ''],
+							['Restrict', 'RESTRICT'],
+							['Cascade', 'CASCADE'],
+							['Set NULL', 'SET NULL'],
+							['No Action', 'NO ACTION'],
+							['Set Default', 'SET DEFAULT'],
+							],
+							'selected' => on_update,
+							) %]
+						</td>
+					</tr>
+					<tr>
+						<th>On Delete</th>
+						<td>
+							[% page.field(
+							'command' => 'constraint_edit',
+							'type' => 'select',
+							'name' => 'on_delete',
+							'opts' => {
+							'class' => 'form-control',
+							},
+							'select' => [
+							['(None)', ''],
+							['Restrict', 'RESTRICT'],
+							['Cascade', 'CASCADE'],
+							['Set NULL', 'SET NULL'],
+							['No Action', 'NO ACTION'],
+							['Set Default', 'SET DEFAULT'],
+							],
+							'selected' => on_delete,
+							) %]
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2" align="center">
+							[% page.button(
+							'command' => 'constraint_edit',
+							'text' => 'Update',
+							'args' => [name],
+							'opts' => {
+							'class' => 'btn btn-success',
+							},
+							) %]&nbsp;&nbsp;&nbsp;&nbsp;[% page.link (
+							'text' => 'Cancel',
+							'opts' => {
+							'class' => 'btn btn-default',
+							},
+							'query' => {
+							'db' => page.form.db,
+							'table' => page.form.table,
+							},
+							) %]
+						</td>
+					</tr>
+				</table>
+			</form>
+		</div>
+	</div>
+</div>

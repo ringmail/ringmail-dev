@@ -13,6 +13,17 @@
          "type" : "text"
       }
    },
+   "constraint" : {
+      "ring_domain-id" : {
+         "columns" : [
+            "id"
+         ],
+         "name" : "ring_domain-id",
+         "reference_columns" : "id",
+         "reference_table" : "note_sequence",
+         "type" : "constraint"
+      }
+   },
    "index" : {
       "domain_1" : {
          "columns" : [
