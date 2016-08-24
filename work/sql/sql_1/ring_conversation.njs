@@ -7,6 +7,13 @@
          "null" : 0,
          "type" : "text"
       },
+      "conversation_uuid" : {
+         "default_null" : 1,
+         "length" : "36",
+         "name" : "conversation_uuid",
+         "null" : 1,
+         "type" : "text"
+      },
       "from_user_id" : {
          "name" : "from_user_id",
          "null" : 0,
@@ -34,11 +41,17 @@
          "name" : "conversation_code_1",
          "type" : "unique"
       },
+      "conversation_uuid_1" : {
+         "columns" : [
+            "conversation_uuid"
+         ],
+         "name" : "conversation_uuid_1",
+         "type" : "unique"
+      },
       "from_user_id_1" : {
          "columns" : [
             "from_user_id",
-            "to_user_id",
-            "to_user_target_id"
+            "to_user_id"
          ],
          "name" : "from_user_id_1",
          "type" : "unique"

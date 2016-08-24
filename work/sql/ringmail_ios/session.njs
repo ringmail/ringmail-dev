@@ -48,6 +48,13 @@
          "name" : "unread",
          "null" : 0,
          "type" : "integer"
+      },
+      "uuid" : {
+         "default" : "",
+         "length" : "36",
+         "name" : "uuid",
+         "null" : 0,
+         "type" : "text"
       }
    },
    "index" : {
@@ -78,6 +85,13 @@
          ],
          "name" : "ts_last_event_1",
          "type" : "index"
+      },
+      "uuid_1" : {
+         "columns" : [
+            "uuid"
+         ],
+         "name" : "uuid_1",
+         "type" : "unique"
       }
    },
    "primary_key" : {

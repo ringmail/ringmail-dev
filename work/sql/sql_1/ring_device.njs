@@ -14,19 +14,13 @@
       }
    },
    "index" : {
-      "device_uuid_1" : {
-         "columns" : [
-            "device_uuid"
-         ],
-         "name" : "device_uuid_1",
-         "type" : "unique"
-      },
       "user_id_1" : {
          "columns" : [
-            "user_id"
+            "user_id",
+            "device_uuid"
          ],
          "name" : "user_id_1",
-         "type" : "index"
+         "type" : "unique"
       }
    },
    "primary_key" : {
