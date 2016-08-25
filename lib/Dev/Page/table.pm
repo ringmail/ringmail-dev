@@ -293,7 +293,6 @@ sub load
                 my $idata = $idx->{$ik};
                 my @row   = ();
                 push @row, $idata->{'name'};
-                push @row, ucfirst( $idata->{'type'} );
                 push @row, join( ', ', @{ $idata->{'columns'} } );
                 push @row, $idata->{'reference_table'};
                 push @row, $idata->{'reference_columns'};
@@ -354,7 +353,7 @@ sub load
 		},
 	);
         $ct->{'constraint_list'} = htable(
-            'fields' => [ 'Name', 'Type', 'Columns', 'Reference Table', 'Reference Columns', 'On Update', 'On Delete', 'Command', ],
+            'fields' => [ 'Name', 'Columns', 'Reference Table', 'Reference Columns', 'On Update', 'On Delete', 'Command', ],
             'data'   => \@constraint,
             'opts'   => {
                 'class' => 'table table-bordered table-striped table-condensed',
