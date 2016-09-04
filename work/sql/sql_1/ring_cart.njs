@@ -96,11 +96,11 @@
       }
    },
    "index" : {
-      "coupon_1" : {
+      "coupon_id_1" : {
          "columns" : [
             "coupon_id"
          ],
-         "name" : "coupon_1",
+         "name" : "coupon_id_1",
          "type" : "unique"
       },
       "hashtag_id_1" : {

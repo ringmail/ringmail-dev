@@ -13,6 +13,12 @@
          "null" : 0,
          "type" : "text"
       },
+      "sent" : {
+         "default" : "0",
+         "name" : "sent",
+         "null" : 0,
+         "type" : "boolean"
+      },
       "transaction_id" : {
          "name" : "transaction_id",
          "null" : 1,

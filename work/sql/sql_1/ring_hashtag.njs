@@ -12,6 +12,12 @@
          "table" : "ring_category",
          "type" : "record"
       },
+      "directory" : {
+         "default" : "0",
+         "name" : "directory",
+         "null" : 0,
+         "type" : "boolean"
+      },
       "hashtag" : {
          "default" : "",
          "length" : "255",
