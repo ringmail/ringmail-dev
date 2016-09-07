@@ -58,15 +58,6 @@
          "reference_table" : "ring_hashtag",
          "type" : "constraint"
       },
-      "ring_cart-id" : {
-         "columns" : [
-            "id"
-         ],
-         "name" : "ring_cart-id",
-         "reference_columns" : "id",
-         "reference_table" : "note_sequence",
-         "type" : "constraint"
-      },
       "ring_cart-order_id" : {
          "columns" : [
             "order_id"

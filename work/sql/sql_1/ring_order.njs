@@ -26,15 +26,6 @@
       }
    },
    "constraint" : {
-      "ring_order-id" : {
-         "columns" : [
-            "id"
-         ],
-         "name" : "ring_order-id",
-         "reference_columns" : "id",
-         "reference_table" : "note_sequence",
-         "type" : "constraint"
-      },
       "ring_order-transaction_id" : {
          "columns" : [
             "transaction_id"

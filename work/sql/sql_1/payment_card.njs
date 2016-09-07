@@ -106,15 +106,6 @@
       }
    },
    "constraint" : {
-      "payment_card-id" : {
-         "columns" : [
-            "id"
-         ],
-         "name" : "payment_card-id",
-         "reference_columns" : "id",
-         "reference_table" : "note_sequence",
-         "type" : "constraint"
-      },
       "payment_card-user_id" : {
          "columns" : [
             "user_id"

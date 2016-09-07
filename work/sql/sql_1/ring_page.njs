@@ -35,15 +35,6 @@
       }
    },
    "constraint" : {
-      "ringpage-id" : {
-         "columns" : [
-            "id"
-         ],
-         "name" : "ringpage-id",
-         "reference_columns" : "id",
-         "reference_table" : "note_sequence",
-         "type" : "constraint"
-      },
       "ringpage-user_id" : {
          "columns" : [
             "user_id"

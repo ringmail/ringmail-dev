@@ -77,15 +77,6 @@
          "reference_table" : "payment_card",
          "type" : "constraint"
       },
-      "payment-id" : {
-         "columns" : [
-            "id"
-         ],
-         "name" : "payment-id",
-         "reference_columns" : "id",
-         "reference_table" : "note_sequence",
-         "type" : "constraint"
-      },
       "payment-proc_id" : {
          "columns" : [
             "proc_id"

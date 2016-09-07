@@ -32,15 +32,6 @@
       }
    },
    "constraint" : {
-      "account-id" : {
-         "columns" : [
-            "id"
-         ],
-         "name" : "account-id",
-         "reference_columns" : "id",
-         "reference_table" : "note_sequence",
-         "type" : "constraint"
-      },
       "account-last_tx" : {
          "columns" : [
             "last_tx"

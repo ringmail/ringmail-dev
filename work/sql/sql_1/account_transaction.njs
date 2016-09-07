@@ -68,15 +68,6 @@
          "reference_table" : "payment",
          "type" : "constraint"
       },
-      "account_transaction-id" : {
-         "columns" : [
-            "id"
-         ],
-         "name" : "account_transaction-id",
-         "reference_columns" : "id",
-         "reference_table" : "note_sequence",
-         "type" : "constraint"
-      },
       "account_transaction-tx_type" : {
          "columns" : [
             "tx_type"

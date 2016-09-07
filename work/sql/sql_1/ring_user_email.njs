@@ -27,15 +27,6 @@
          "reference_table" : "ring_email",
          "type" : "constraint"
       },
-      "ring_user_email-id" : {
-         "columns" : [
-            "id"
-         ],
-         "name" : "ring_user_email-id",
-         "reference_columns" : "id",
-         "reference_table" : "note_sequence",
-         "type" : "constraint"
-      },
       "ring_user_email-user_id" : {
          "columns" : [
             "user_id"

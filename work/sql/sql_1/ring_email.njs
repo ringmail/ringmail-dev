@@ -44,15 +44,6 @@
          "reference_columns" : "id",
          "reference_table" : "ring_domain_user",
          "type" : "constraint"
-      },
-      "ring_email-id" : {
-         "columns" : [
-            "id"
-         ],
-         "name" : "ring_email-id",
-         "reference_columns" : "id",
-         "reference_table" : "note_sequence",
-         "type" : "constraint"
       }
    },
    "index" : {

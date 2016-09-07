@@ -67,15 +67,6 @@
          "reference_table" : "ring_category",
          "type" : "constraint"
       },
-      "ring_hashtag-id" : {
-         "columns" : [
-            "id"
-         ],
-         "name" : "ring_hashtag-id",
-         "reference_columns" : "id",
-         "reference_table" : "note_sequence",
-         "type" : "constraint"
-      },
       "ring_hashtag-ringpage_id" : {
          "columns" : [
             "ringpage_id"

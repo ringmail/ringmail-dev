@@ -22,15 +22,6 @@
          "reference_columns" : "id",
          "reference_table" : "ring_domain",
          "type" : "constraint"
-      },
-      "ring_domain_user-id" : {
-         "columns" : [
-            "id"
-         ],
-         "name" : "ring_domain_user-id",
-         "reference_columns" : "id",
-         "reference_table" : "note_sequence",
-         "type" : "constraint"
       }
    },
    "index" : {

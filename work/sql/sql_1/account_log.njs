@@ -47,15 +47,6 @@
          "reference_table" : "account",
          "type" : "constraint"
       },
-      "account_log-id" : {
-         "columns" : [
-            "id"
-         ],
-         "name" : "account_log-id",
-         "reference_columns" : "id",
-         "reference_table" : "note_sequence",
-         "type" : "constraint"
-      },
       "account_log-tx_new" : {
          "columns" : [
             "tx_new"

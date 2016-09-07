@@ -39,17 +39,6 @@
       }
    },
    "constraint" : {
-      "ring_coupon-id" : {
-         "columns" : [
-            "id"
-         ],
-         "name" : "ring_coupon-id",
-         "on_delete" : "",
-         "on_update" : "",
-         "reference_columns" : "id",
-         "reference_table" : "note_sequence",
-         "type" : "constraint"
-      },
       "ring_coupon-transaction_id" : {
          "columns" : [
             "transaction_id"

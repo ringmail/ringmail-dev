@@ -89,15 +89,6 @@
          "reference_table" : "payment_error",
          "type" : "constraint"
       },
-      "payment_attempt-id" : {
-         "columns" : [
-            "id"
-         ],
-         "name" : "payment_attempt-id",
-         "reference_columns" : "id",
-         "reference_table" : "note_sequence",
-         "type" : "constraint"
-      },
       "payment_attempt-payment_id" : {
          "columns" : [
             "payment"

@@ -14,15 +14,6 @@
       }
    },
    "constraint" : {
-      "ring_user_admin-id" : {
-         "columns" : [
-            "id"
-         ],
-         "name" : "ring_user_admin-id",
-         "reference_columns" : "id",
-         "reference_table" : "note_sequence",
-         "type" : "constraint"
-      },
       "ring_user_admin-user_id" : {
          "columns" : [
             "user_id"

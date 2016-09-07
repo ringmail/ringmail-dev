@@ -27,15 +27,6 @@
          "reference_columns" : "id",
          "reference_table" : "account",
          "type" : "constraint"
-      },
-      "payment_lock-id" : {
-         "columns" : [
-            "id"
-         ],
-         "name" : "payment_lock-id",
-         "reference_columns" : "id",
-         "reference_table" : "note_sequence",
-         "type" : "constraint"
       }
    },
    "index" : {
