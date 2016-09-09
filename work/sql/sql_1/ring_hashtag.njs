@@ -18,6 +18,12 @@
          "null" : 0,
          "type" : "boolean"
       },
+      "free" : {
+         "default" : "0",
+         "name" : "free",
+         "null" : 0,
+         "type" : "boolean"
+      },
       "hashtag" : {
          "default" : "",
          "length" : "255",
