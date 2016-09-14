@@ -41,6 +41,18 @@
 							) %]
 						</td>
 					</tr>
+					[% IF page.value.new.null %]
+					<tr>
+						<th>Default Null</th>
+						<td>
+							[% page.field(
+							'command' => 'column_new',
+							'type' => 'checkbox',
+							'name' => 'default_null',
+							) %]
+						</td>
+					</tr>
+					[% END %]
 					[% ELSIF page.value.type == 'text' || page.value.type == 'binary' %]
 					<tr>
 						<th>Length</th>

@@ -514,6 +514,14 @@ sub column_check
 #		{
 #			$col->{'max_cardinality'} = 1;
 #		}
+		if ($col->{'null'} && $data->{'default_null'} eq 'on')
+		{
+			$col->{'default_null'} = 1;
+		}
+		else
+		{
+			$col->{'default'} = $data->{'default'};
+		}
 	}
 	elsif ($ty eq 'text' || $ty eq 'binary')
 	{
