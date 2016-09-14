@@ -42,8 +42,7 @@
 							) %]
 						</td>
 					</tr>
-					[% ELSIF page.value.type == 'text' ||
-					page.value.type == 'binary' %]
+					[% ELSIF page.value.type == 'text' || page.value.type == 'binary' %]
 					<tr>
 						<th>Length</th>
 						<td>
@@ -105,10 +104,7 @@
 						</td>
 					</tr>
 					[% END %]
-					[% ELSIF page.value.type == 'boolean' ||
-					page.value.type == 'integer' ||
-					page.value.type == 'float' ||
-					page.value.type == 'currency' %]
+					[% ELSIF page.value.type == 'boolean' || page.value.type == 'integer' || page.value.type == 'float' || page.value.type == 'currency' %]
 					<tr>
 						<th>Default</th>
 						<td>
