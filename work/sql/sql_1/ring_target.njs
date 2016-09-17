@@ -18,6 +18,11 @@
          "null" : 1,
          "type" : "record"
       },
+      "hashtag_id" : {
+         "name" : "hashtag_id",
+         "null" : 1,
+         "type" : "record"
+      },
       "target_type" : {
          "length" : "16",
          "name" : "target_type",
@@ -88,6 +93,13 @@
             "email_id"
          ],
          "name" : "email_id_1",
+         "type" : "unique"
+      },
+      "hashtag_id_1" : {
+         "columns" : [
+            "hashtag_id"
+         ],
+         "name" : "hashtag_id_1",
          "type" : "unique"
       },
       "user_id_1" : {

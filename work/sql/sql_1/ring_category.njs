@@ -13,6 +13,13 @@
          "table" : "ring_category",
          "type" : "record"
       },
+      "color_hex" : {
+         "default" : "",
+         "length" : "64k",
+         "name" : "color_hex",
+         "null" : 0,
+         "type" : "text"
+      },
       "ts" : {
          "name" : "ts",
          "null" : 0,
