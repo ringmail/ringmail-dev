@@ -17,7 +17,7 @@
          "default" : "",
          "length" : "64k",
          "name" : "color_hex",
-         "null" : 0,
+         "null" : 1,
          "type" : "text"
       },
       "ts" : {
