@@ -59,6 +59,10 @@ sub load
 	{
 		$ct->{'input_index'} = $obj->apply('element/new_index.html', {});
 	}
+	elsif ($form->{'new_constraint'})
+	{
+		$ct->{'input_constraint'} = $obj->apply('element/new_constraint.html', {});
+	}
 	if (length ($form->{'edit'}))
 	{
 		my $edk = $form->{'edit'};
@@ -98,6 +102,23 @@ sub load
 				'name' => $ik,
 				'type' => $idata->{'type'},
 				'columns' => join(', ', @{$idata->{'columns'}}),
+			});
+		}
+	}
+	elsif ($form->{'edit_constraint'})
+	{
+		my $ik = $form->{'edit_constraint'};
+		if (exists $tdata->{'constraint'}->{$ik})
+		{
+			my $idata = $tdata->{'constraint'}->{$ik};
+			$ct->{'input_constraint'} = $obj->apply('element/edit_constraint.html', {
+				'name' => $ik,
+				'type' => $idata->{'type'},
+				'columns' => join(', ', @{$idata->{'columns'}}),
+				'reference_table' => $idata->{'reference_table'},
+				'reference_columns' => $idata->{'reference_columns'},
+				'on_update' => $idata->{'on_update'},
+				'on_delete' => $idata->{'on_delete'},
 			});
 		}
 	}
@@ -264,6 +285,46 @@ sub load
 		);
 		push @index, \@row;
 	}
+        my @constraint = ();
+        {
+            my $idx = $tdata->{'constraint'};
+            $idx ||= {};
+            foreach my $ik ( sort keys %$idx ) {
+                my $idata = $idx->{$ik};
+                my @row   = ();
+                push @row, $idata->{'name'};
+                push @row, join( ', ', @{ $idata->{'columns'} } );
+                push @row, $idata->{'reference_table'};
+                push @row, $idata->{'reference_columns'};
+                push @row, ( defined $idata->{'on_update'} and length $idata->{'on_update'} > 0 ) ? $idata->{'on_update'} : '&nbsp;';
+                push @row, ( defined $idata->{'on_delete'} and length $idata->{'on_delete'} > 0 ) ? $idata->{'on_delete'} : '&nbsp;';
+                my @cmds = ();
+                push @cmds,
+                    (
+                    0,
+                    $obj->link(
+                        'text'  => 'Edit',
+                        'opts'  => { 'class' => 'btn btn-default', },
+                        'query' => {
+                            'db'         => $form->{'db'},
+                            'table'      => $form->{'table'},
+                            'edit_constraint' => $ik,
+                        },
+                    ),
+                    );
+                push @cmds,
+                    (
+                    'a',
+                    [   {   'class'   => 'btn btn-default',
+                            'onclick' => qq|return show_delete_constraint('$idata->{'name'}');|,
+                        },
+                        0, 'Delete',
+                    ],
+                    );
+                push @row, xml( 'div', [ { 'class' => 'btn-group btn-group-xs' }, @cmds, ], );
+                push @constraint, \@row;
+            }
+        }
 	$ct->{'column_list'} = htable(
 		'fields' => [
 			'Name',
@@ -291,6 +352,13 @@ sub load
 			'style' => 'width: 700px;',
 		},
 	);
+        $ct->{'constraint_list'} = htable(
+            'fields' => [ 'Name', 'Columns', 'Reference Table', 'Reference Columns', 'On Update', 'On Delete', 'Command', ],
+            'data'   => \@constraint,
+            'opts'   => {
+                'class' => 'table table-bordered table-striped table-condensed',
+            },
+        );
 	$obj->schema(new Note::SQL::Schema());
 	my $platform = 'mysql';
 	if ($form->{'platform'} eq 'sqlite')
@@ -446,6 +514,14 @@ sub column_check
 #		{
 #			$col->{'max_cardinality'} = 1;
 #		}
+		if ($col->{'null'} && $data->{'default_null'} eq 'on')
+		{
+			$col->{'default_null'} = 1;
+		}
+		else
+		{
+			$col->{'default'} = $data->{'default'};
+		}
 	}
 	elsif ($ty eq 'text' || $ty eq 'binary')
 	{
@@ -708,6 +784,78 @@ sub index_new
 	$obj->table_save($tbl);
 }
 
+sub constraint_new
+{
+	my ($obj, $data, $args) = @_;
+	my $ct = $obj->content();
+	my $name = $data->{'name'};
+	my $ty = 'constraint';
+	my $cols = $data->{'columns'};
+	my $reference_table = $data->{'reference_table'};
+	my $reference_columns = $data->{'reference_columns'};
+	my $on_update = $data->{'on_update'};
+	my $on_delete = $data->{'on_delete'};
+	$cols =~ s/\s//g;
+	unless (length($name))
+	{
+		return;
+	}
+	my $ck = new Note::Check(
+		'type' => 'regex',
+		'chars' => 'a-z0-9_-',
+	);
+	unless ($ck->check(\$name))
+	{
+		$ct->{'error'} = 'Constraint Name: '. $ck->error();
+		return;
+	}
+	my $tbl = $obj->table_load();
+	if (exists $tbl->{'constraint'}->{$name})
+	{
+		$ct->{'error'} = 'Duplicate constraint name';
+		return;
+	}
+	my $fc = new Note::Check(
+		'type' => 'regex',
+		'chars' => 'a-z0-9_-,()',
+	);
+	unless ($fc->check(\$cols))
+	{
+		$ct->{'error'} = 'Constraint Columns: '. $fc->error();
+		return;
+	}
+	my @fs = ();
+	if ($cols =~ /\,/)
+	{
+		@fs = split /\,/, $cols;
+	}
+	else
+	{
+		@fs = ($cols);
+	}
+	foreach my $k (@fs)
+	{
+		my $rk = $k;
+		next if ($rk eq 'id');
+		unless (exists $tbl->{'columns'}->{$rk})
+		{
+			$ct->{'error'} = 'Invalid index columns';
+			return;
+		}
+	}
+	$tbl->{'constraint'} ||= {};
+	$tbl->{'constraint'}->{$name} = {
+		'name' => $name,
+		'type' => $ty,
+		'columns' => \@fs,
+		'reference_table' => $reference_table,
+		'reference_columns' => $reference_columns,
+		'on_update' => $on_update,
+		'on_delete' => $on_delete,
+	};
+	$obj->table_save($tbl);
+}
+
 sub index_delete
 {
 	my ($obj, $data, $args) = @_;
@@ -717,6 +865,19 @@ sub index_delete
 	{
 		delete $tbl->{'index'}->{$k};
 		$obj->{'content'}->{'message'} = qq|Deleted index '$k'|;
+		$obj->table_save($tbl);
+	}
+}
+
+sub constraint_delete
+{
+	my ($obj, $data, $args) = @_;
+	my $tbl = $obj->table_load();
+	my $k = $data->{'item'};
+	if (exists $tbl->{'constraint'}->{$k})
+	{
+		delete $tbl->{'constraint'}->{$k};
+		$obj->{'content'}->{'message'} = qq|Deleted constraint '$k'|;
 		$obj->table_save($tbl);
 	}
 }
@@ -806,6 +967,90 @@ sub index_edit
 		'name' => $name,
 		'type' => $ty,
 		'columns' => \@fs,
+	};
+	$obj->table_save($tbl);
+}
+
+sub constraint_edit
+{
+	my ($obj, $data, $args) = @_;
+	my $tbl = $obj->table_load();
+	my $orig = $args->[0];
+	unless (exists $tbl->{'constraint'}->{$orig})
+	{
+		return;
+	}
+	my $ct = $obj->content();
+	my $name = $data->{'name'};
+	my $ty = 'constraint';
+	my $cols = $data->{'columns'};
+	my $reference_table = $data->{'reference_table'};
+	my $reference_columns = $data->{'reference_columns'};
+	my $on_update = $data->{'on_update'};
+	my $on_delete = $data->{'on_delete'};
+	$cols =~ s/\s//g;
+	unless (length($name))
+	{
+		return;
+	}
+	my $ck = new Note::Check(
+		'type' => 'regex',
+		'chars' => 'a-z0-9_-',
+	);
+	unless ($ck->check(\$name))
+	{
+		$ct->{'error'} = 'Constraint Name: '. $ck->error();
+		return;
+	}
+	if ($name ne $orig)
+	{
+		if (exists $tbl->{'constraint'}->{$name})
+		{
+			$ct->{'error'} = 'Duplicate constraint name';
+			return;
+		}
+	}
+	my $fc = new Note::Check(
+		'type' => 'regex',
+		'chars' => 'a-z0-9_-,()',
+	);
+	unless ($fc->check(\$cols))
+	{
+		$ct->{'error'} = 'Constraint Columns: '. $fc->error();
+		return;
+	}
+	my @fs = ();
+	if ($cols =~ /\,/)
+	{
+		@fs = split /\,/, $cols;
+	}
+	else
+	{
+		@fs = ($cols);
+	}
+	foreach my $k (@fs)
+	{
+		my $rk = $k;
+		next if ($rk eq 'id');
+		unless (exists $tbl->{'columns'}->{$rk})
+		{
+			$ct->{'error'} = 'Invalid constraint columns';
+			return;
+		}
+	}
+	$tbl->{'constraint'} ||= {};
+	if ($name ne $orig)
+	{
+		delete $tbl->{'constraint'}->{$orig};
+	}
+	$tbl->{'constraint'}->{$name} = {
+		'name' => $name,
+		'type' => $ty,
+		'columns' => \@fs,
+		'reference_table' => $reference_table,
+		'reference_columns' => $reference_columns,
+		'on_update' => $on_update,
+		'on_delete' => $on_delete,
 	};
 	$obj->table_save($tbl);
 }
