@@ -38,30 +38,7 @@
          "type" : "record"
       }
    },
-   "constraint" : {
-      "ring_coupon-transaction_id" : {
-         "columns" : [
-            "transaction_id"
-         ],
-         "name" : "ring_coupon-transaction_id",
-         "on_delete" : "",
-         "on_update" : "",
-         "reference_columns" : "id",
-         "reference_table" : "account_transaction",
-         "type" : "constraint"
-      },
-      "ring_coupon-user_id" : {
-         "columns" : [
-            "user_id"
-         ],
-         "name" : "ring_coupon-user_id",
-         "on_delete" : "",
-         "on_update" : "",
-         "reference_columns" : "id",
-         "reference_table" : "ring_user",
-         "type" : "constraint"
-      }
-   },
+   "constraint" : {},
    "index" : {
       "code_1" : {
          "columns" : [

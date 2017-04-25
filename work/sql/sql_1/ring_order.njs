@@ -25,26 +25,7 @@
          "type" : "record"
       }
    },
-   "constraint" : {
-      "ring_order-transaction_id" : {
-         "columns" : [
-            "transaction_id"
-         ],
-         "name" : "ring_order-transaction_id",
-         "reference_columns" : "id",
-         "reference_table" : "account_transaction",
-         "type" : "constraint"
-      },
-      "ring_order-user_id" : {
-         "columns" : [
-            "user_id"
-         ],
-         "name" : "ring_order-user_id",
-         "reference_columns" : "id",
-         "reference_table" : "ring_user",
-         "type" : "constraint"
-      }
-   },
+   "constraint" : {},
    "index" : {
       "transaction_id_1" : {
          "columns" : [

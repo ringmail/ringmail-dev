@@ -13,17 +13,7 @@
          "type" : "record"
       }
    },
-   "constraint" : {
-      "ring_user_admin-user_id" : {
-         "columns" : [
-            "user_id"
-         ],
-         "name" : "ring_user_admin-user_id",
-         "reference_columns" : "id",
-         "reference_table" : "ring_user",
-         "type" : "constraint"
-      }
-   },
+   "constraint" : {},
    "index" : {
       "user_id_1" : {
          "columns" : [

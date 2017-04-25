@@ -17,26 +17,7 @@
          "type" : "record"
       }
    },
-   "constraint" : {
-      "ring_user_email-email_id" : {
-         "columns" : [
-            "email_id"
-         ],
-         "name" : "ring_user_email-email_id",
-         "reference_columns" : "id",
-         "reference_table" : "ring_email",
-         "type" : "constraint"
-      },
-      "ring_user_email-user_id" : {
-         "columns" : [
-            "user_id"
-         ],
-         "name" : "ring_user_email-user_id",
-         "reference_columns" : "id",
-         "reference_table" : "ring_user",
-         "type" : "constraint"
-      }
-   },
+   "constraint" : {},
    "index" : {
       "email_id_1" : {
          "columns" : [

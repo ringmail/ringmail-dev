@@ -61,62 +61,7 @@
          "type" : "record"
       }
    },
-   "constraint" : {
-      "payment_attempt-account_id" : {
-         "columns" : [
-            "account"
-         ],
-         "name" : "payment_attempt-account_id",
-         "reference_columns" : "id",
-         "reference_table" : "account",
-         "type" : "constraint"
-      },
-      "payment_attempt-card_id" : {
-         "columns" : [
-            "card_id"
-         ],
-         "name" : "payment_attempt-card_id",
-         "reference_columns" : "id",
-         "reference_table" : "payment_card",
-         "type" : "constraint"
-      },
-      "payment_attempt-error_id" : {
-         "columns" : [
-            "error"
-         ],
-         "name" : "payment_attempt-error_id",
-         "reference_columns" : "id",
-         "reference_table" : "payment_error",
-         "type" : "constraint"
-      },
-      "payment_attempt-payment_id" : {
-         "columns" : [
-            "payment"
-         ],
-         "name" : "payment_attempt-payment_id",
-         "reference_columns" : "id",
-         "reference_table" : "payment",
-         "type" : "constraint"
-      },
-      "payment_attempt-proc_id" : {
-         "columns" : [
-            "proc_id"
-         ],
-         "name" : "payment_attempt-proc_id",
-         "reference_columns" : "id",
-         "reference_table" : "payment_proc",
-         "type" : "constraint"
-      },
-      "payment_attempt-user_id" : {
-         "columns" : [
-            "user_id"
-         ],
-         "name" : "payment_attempt-user_id",
-         "reference_columns" : "id",
-         "reference_table" : "ring_user",
-         "type" : "constraint"
-      }
-   },
+   "constraint" : {},
    "index" : {
       "account_1" : {
          "columns" : [

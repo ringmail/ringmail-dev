@@ -26,26 +26,7 @@
          "type" : "text"
       }
    },
-   "constraint" : {
-      "ring_email-domain_id" : {
-         "columns" : [
-            "domain_id"
-         ],
-         "name" : "ring_email-domain_id",
-         "reference_columns" : "id",
-         "reference_table" : "ring_domain",
-         "type" : "constraint"
-      },
-      "ring_email-domain_user_id" : {
-         "columns" : [
-            "domain_user_id"
-         ],
-         "name" : "ring_email-domain_user_id",
-         "reference_columns" : "id",
-         "reference_table" : "ring_domain_user",
-         "type" : "constraint"
-      }
-   },
+   "constraint" : {},
    "index" : {
       "domain_id_1" : {
          "columns" : [

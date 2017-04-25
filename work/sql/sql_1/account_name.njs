@@ -13,17 +13,7 @@
          "type" : "text"
       }
    },
-   "constraint" : {
-      "account_name-account_id" : {
-         "columns" : [
-            "account"
-         ],
-         "name" : "account_name-account_id",
-         "reference_columns" : "id",
-         "reference_table" : "account",
-         "type" : "constraint"
-      }
-   },
+   "constraint" : {},
    "index" : {
       "account_id_1" : {
          "columns" : [

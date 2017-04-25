@@ -105,17 +105,7 @@
          "type" : "text"
       }
    },
-   "constraint" : {
-      "payment_card-user_id" : {
-         "columns" : [
-            "user_id"
-         ],
-         "name" : "payment_card-user_id",
-         "reference_columns" : "id",
-         "reference_table" : "ring_user",
-         "type" : "constraint"
-      }
-   },
+   "constraint" : {},
    "index" : {
       "user_1" : {
          "columns" : [

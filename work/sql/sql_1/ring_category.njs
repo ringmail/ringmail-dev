@@ -27,17 +27,7 @@
          "type" : "datetime"
       }
    },
-   "constraint" : {
-      "ring_category-category_id" : {
-         "columns" : [
-            "category_id"
-         ],
-         "name" : "ring_category-category_id",
-         "reference_columns" : "id",
-         "reference_table" : "ring_category",
-         "type" : "constraint"
-      }
-   },
+   "constraint" : {},
    "index" : {
       "category" : {
          "columns" : [
