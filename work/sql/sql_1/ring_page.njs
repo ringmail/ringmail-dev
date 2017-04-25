@@ -34,26 +34,7 @@
          "type" : "record"
       }
    },
-   "constraint" : {
-      "ringpage-id" : {
-         "columns" : [
-            "id"
-         ],
-         "name" : "ringpage-id",
-         "reference_columns" : "id",
-         "reference_table" : "note_sequence",
-         "type" : "constraint"
-      },
-      "ringpage-user_id" : {
-         "columns" : [
-            "user_id"
-         ],
-         "name" : "ringpage-user_id",
-         "reference_columns" : "id",
-         "reference_table" : "ring_user",
-         "type" : "constraint"
-      }
-   },
+   "constraint" : {},
    "index" : {
       "user_id_1" : {
          "columns" : [

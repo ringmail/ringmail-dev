@@ -22,15 +22,6 @@
       }
    },
    "constraint" : {
-      "ring_did-id" : {
-         "columns" : [
-            "id"
-         ],
-         "name" : "ring_did-id",
-         "reference_columns" : "id",
-         "reference_table" : "note_sequence",
-         "type" : "constraint"
-      }
    },
    "index" : {
       "did_code_1" : {

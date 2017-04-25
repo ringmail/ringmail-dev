@@ -8,15 +8,6 @@
       }
    },
    "constraint" : {
-      "payment_proc-id" : {
-         "columns" : [
-            "id"
-         ],
-         "name" : "payment_proc-id",
-         "reference_columns" : "id",
-         "reference_table" : "note_sequence",
-         "type" : "constraint"
-      }
    },
    "index" : {
       "name" : {

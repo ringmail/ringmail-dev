@@ -39,41 +39,7 @@
          "type" : "record"
       }
    },
-   "constraint" : {
-      "ring_button-id" : {
-         "columns" : [
-            "id"
-         ],
-         "name" : "ring_button-id",
-         "on_delete" : "",
-         "on_update" : "",
-         "reference_columns" : "id",
-         "reference_table" : "note_sequence",
-         "type" : "constraint"
-      },
-      "ring_button-ringpage_id" : {
-         "columns" : [
-            "ringpage_id"
-         ],
-         "name" : "ring_button-ringpage_id",
-         "on_delete" : "CASCADE",
-         "on_update" : "",
-         "reference_columns" : "id",
-         "reference_table" : "ring_page",
-         "type" : "constraint"
-      },
-      "ring_button-user_id" : {
-         "columns" : [
-            "user_id"
-         ],
-         "name" : "ring_button-user_id",
-         "on_delete" : "",
-         "on_update" : "",
-         "reference_columns" : "id",
-         "reference_table" : "ring_user",
-         "type" : "constraint"
-      }
-   },
+   "constraint" : {},
    "index" : {
       "ringpage_id_1" : {
          "columns" : [

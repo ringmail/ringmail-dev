@@ -6,12 +6,14 @@
          "type" : "record"
       },
       "did_label" : {
+         "default" : "",
          "length" : "64",
          "name" : "did_label",
          "null" : 0,
          "type" : "text"
       },
       "did_type" : {
+         "default" : "",
          "length" : "16",
          "name" : "did_type",
          "null" : 0,

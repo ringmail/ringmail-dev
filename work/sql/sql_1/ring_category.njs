@@ -13,6 +13,13 @@
          "table" : "ring_category",
          "type" : "record"
       },
+      "color_hex" : {
+         "default" : "",
+         "length" : "64k",
+         "name" : "color_hex",
+         "null" : 1,
+         "type" : "text"
+      },
       "ts" : {
          "name" : "ts",
          "null" : 0,
@@ -20,26 +27,7 @@
          "type" : "datetime"
       }
    },
-   "constraint" : {
-      "ring_category-category_id" : {
-         "columns" : [
-            "category_id"
-         ],
-         "name" : "ring_category-category_id",
-         "reference_columns" : "id",
-         "reference_table" : "ring_category",
-         "type" : "constraint"
-      },
-      "ring_category-id" : {
-         "columns" : [
-            "id"
-         ],
-         "name" : "ring_category-id",
-         "reference_columns" : "id",
-         "reference_table" : "note_sequence",
-         "type" : "constraint"
-      }
-   },
+   "constraint" : {},
    "index" : {
       "category" : {
          "columns" : [

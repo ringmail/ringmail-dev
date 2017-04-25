@@ -41,17 +41,6 @@
          "reference_columns" : "id",
          "reference_table" : "ring_hashtag",
          "type" : "constraint"
-      },
-      "ring_user-user_id" : {
-         "columns" : [
-            "user_id"
-         ],
-         "name" : "ring_user-user_id",
-         "on_delete" : "",
-         "on_update" : "",
-         "reference_columns" : "id",
-         "reference_table" : "ring_user",
-         "type" : "constraint"
       }
    },
    "index" : {
@@ -61,6 +50,13 @@
          ],
          "name" : "hashtag_id_1",
          "type" : "unique"
+      },
+      "user_id_1" : {
+         "columns" : [
+            "user_id"
+         ],
+         "name" : "user_id_1",
+         "type" : "index"
       }
    },
    "primary_key" : {

@@ -2,45 +2,43 @@
    "columns" : {
       "domain_id" : {
          "name" : "domain_id",
-         "null" : 0,
+         "null" : 1,
+         "table" : "ring_domain",
          "type" : "record"
       },
-      "ts_added" : {
-         "name" : "ts_added",
-         "null" : 0,
-         "type" : "datetime"
-      },
-      "ts_verified" : {
-         "default_null" : 1,
-         "name" : "ts_verified",
+      "hashtag_id" : {
+         "name" : "hashtag_id",
          "null" : 1,
-         "type" : "datetime"
+         "table" : "ring_hashtag",
+         "type" : "record"
+      },
+      "identity_type" : {
+         "default" : "",
+         "length" : "32",
+         "name" : "identity_type",
+         "null" : 0,
+         "type" : "text"
       },
       "user_id" : {
          "name" : "user_id",
          "null" : 0,
+         "table" : "ring_user",
          "type" : "record"
-      },
-      "verified" : {
-         "default" : "0",
-         "name" : "verified",
-         "null" : 0,
-         "type" : "boolean"
-      },
-      "verify_code" : {
-         "length" : "32",
-         "name" : "verify_code",
-         "null" : 0,
-         "type" : "text"
       }
    },
-   "constraint" : {},
    "index" : {
       "domain_id_1" : {
          "columns" : [
             "domain_id"
          ],
          "name" : "domain_id_1",
+         "type" : "unique"
+      },
+      "hashtag_id_1" : {
+         "columns" : [
+            "hashtag_id"
+         ],
+         "name" : "hashtag_id_1",
          "type" : "unique"
       },
       "user_id_1" : {
@@ -52,6 +50,7 @@
       }
    },
    "primary_key" : {
+      "mode" : "auto_inc",
       "name" : "id",
       "type" : "record"
    }

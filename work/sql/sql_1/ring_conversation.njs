@@ -14,16 +14,16 @@
          "null" : 1,
          "type" : "text"
       },
-      "from_user_id" : {
-         "name" : "from_user_id",
+      "from_identity_id" : {
+         "name" : "from_identity_id",
          "null" : 0,
-         "table" : "ring_user",
+         "table" : "ring_conversation_identity",
          "type" : "record"
       },
-      "to_user_id" : {
-         "name" : "to_user_id",
+      "to_identity_id" : {
+         "name" : "to_identity_id",
          "null" : 0,
-         "table" : "ring_user",
+         "table" : "ring_conversation_identity",
          "type" : "record"
       },
       "to_user_target_id" : {
@@ -48,12 +48,12 @@
          "name" : "conversation_uuid_1",
          "type" : "unique"
       },
-      "from_user_id_1" : {
+      "from_identity_id_1" : {
          "columns" : [
-            "from_user_id",
-            "to_user_id"
+            "from_identity_id",
+            "to_identity_id"
          ],
-         "name" : "from_user_id_1",
+         "name" : "from_identity_id_1",
          "type" : "unique"
       }
    },

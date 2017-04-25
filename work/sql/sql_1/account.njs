@@ -31,26 +31,7 @@
          "type" : "record"
       }
    },
-   "constraint" : {
-      "account-id" : {
-         "columns" : [
-            "id"
-         ],
-         "name" : "account-id",
-         "reference_columns" : "id",
-         "reference_table" : "note_sequence",
-         "type" : "constraint"
-      },
-      "account-last_tx" : {
-         "columns" : [
-            "last_tx"
-         ],
-         "name" : "account-last_tx",
-         "reference_columns" : "id",
-         "reference_table" : "account_transaction",
-         "type" : "constraint"
-      }
-   },
+   "constraint" : {},
    "index" : {
       "last_tx_1" : {
          "columns" : [

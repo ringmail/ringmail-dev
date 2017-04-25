@@ -18,26 +18,7 @@
          "type" : "datetime"
       }
    },
-   "constraint" : {
-      "payment_lock-account_id" : {
-         "columns" : [
-            "account"
-         ],
-         "name" : "payment_lock-account_id",
-         "reference_columns" : "id",
-         "reference_table" : "account",
-         "type" : "constraint"
-      },
-      "payment_lock-id" : {
-         "columns" : [
-            "id"
-         ],
-         "name" : "payment_lock-id",
-         "reference_columns" : "id",
-         "reference_table" : "note_sequence",
-         "type" : "constraint"
-      }
-   },
+   "constraint" : {},
    "index" : {
       "account_id" : {
          "columns" : [

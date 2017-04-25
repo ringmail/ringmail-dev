@@ -23,35 +23,7 @@
          "type" : "boolean"
       }
    },
-   "constraint" : {
-      "ring_user_domain-domain_id" : {
-         "columns" : [
-            "domain_id"
-         ],
-         "name" : "ring_user_domain-domain_id",
-         "reference_columns" : "id",
-         "reference_table" : "ring_domain",
-         "type" : "constraint"
-      },
-      "ring_user_domain-id" : {
-         "columns" : [
-            "id"
-         ],
-         "name" : "ring_user_domain-id",
-         "reference_columns" : "id",
-         "reference_table" : "note_sequence",
-         "type" : "constraint"
-      },
-      "ring_user_domain-user_id" : {
-         "columns" : [
-            "user_id"
-         ],
-         "name" : "ring_user_domain-user_id",
-         "reference_columns" : "id",
-         "reference_table" : "ring_user",
-         "type" : "constraint"
-      }
-   },
+   "constraint" : {},
    "index" : {
       "domain_id_1" : {
          "columns" : [

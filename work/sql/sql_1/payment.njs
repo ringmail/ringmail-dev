@@ -58,53 +58,7 @@
          "type" : "record"
       }
    },
-   "constraint" : {
-      "payment-account_id" : {
-         "columns" : [
-            "account"
-         ],
-         "name" : "payment-account_id",
-         "reference_columns" : "id",
-         "reference_table" : "account",
-         "type" : "constraint"
-      },
-      "payment-card_id" : {
-         "columns" : [
-            "card_id"
-         ],
-         "name" : "payment-card_id",
-         "reference_columns" : "id",
-         "reference_table" : "payment_card",
-         "type" : "constraint"
-      },
-      "payment-id" : {
-         "columns" : [
-            "id"
-         ],
-         "name" : "payment-id",
-         "reference_columns" : "id",
-         "reference_table" : "note_sequence",
-         "type" : "constraint"
-      },
-      "payment-proc_id" : {
-         "columns" : [
-            "proc_id"
-         ],
-         "name" : "payment-proc_id",
-         "reference_columns" : "id",
-         "reference_table" : "payment_proc",
-         "type" : "constraint"
-      },
-      "payment-user_id" : {
-         "columns" : [
-            "user_id"
-         ],
-         "name" : "payment-user_id",
-         "reference_columns" : "id",
-         "reference_table" : "ring_user",
-         "type" : "constraint"
-      }
-   },
+   "constraint" : {},
    "index" : {
       "account_1" : {
          "columns" : [
